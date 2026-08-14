@@ -1,0 +1,19 @@
+{
+  "sequences": [
+    {
+      "id": "servicios-profesionales",
+      "totalFrames": 181,
+      "framePath": "/assets/frames/servicios-profesionales",
+      "width": 609,
+      "height": 1080
+    },
+    {
+      "id": "mantenimiento",
+      "totalFrames": 201,
+      "framePath": "/assets/frames/mantenimiento",
+      "width": 1280,
+      "height": 722
+    }
+  ],
+  "updatedAt": "2026-08-05T15:59:57.103Z"
+}

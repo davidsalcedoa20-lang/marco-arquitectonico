@@ -1,0 +1,275 @@
+[
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\construccion\\Lote.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\construccion\\Lote.webp",
+    "skipped": false,
+    "before": 2559496,
+    "after": 225570
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\construccion-a.jpg",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\construccion-a.webp",
+    "skipped": false,
+    "before": 138610,
+    "after": 125568
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\construccion-b.jpg",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\construccion-b.webp",
+    "skipped": false,
+    "before": 97134,
+    "after": 65478
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\construccion3.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\construccion3.webp",
+    "skipped": false,
+    "before": 2638900,
+    "after": 219366
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\Lote.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\Lote.webp",
+    "skipped": false,
+    "before": 2559496,
+    "after": 225570
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\mantenimiento-a.jpg",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\mantenimiento-a.webp",
+    "skipped": false,
+    "before": 168856,
+    "after": 151822
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\mantenimiento-b.jpg",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\mantenimiento-b.webp",
+    "skipped": false,
+    "before": 158384,
+    "after": 136680
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\mantenimiento3.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\mantenimiento3.webp",
+    "skipped": false,
+    "before": 2375833,
+    "after": 86562
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\profesionales-a.jpg",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\profesionales-a.webp",
+    "skipped": false,
+    "before": 76489,
+    "after": 45976
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\profesionales-b.jpg",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\profesionales-b.webp",
+    "skipped": false,
+    "before": 28562,
+    "after": 19082
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\servicios_profesionales3.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\home\\servicios_profesionales3.webp",
+    "skipped": false,
+    "before": 2561610,
+    "after": 150168
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\07_vaciado_concreto.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\07_vaciado_concreto.webp",
+    "skipped": false,
+    "before": 8566670,
+    "after": 454318
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\08_montaje_vigas.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\08_montaje_vigas.webp",
+    "skipped": false,
+    "before": 8297886,
+    "after": 319066
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\09_supervision_obra.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\09_supervision_obra.webp",
+    "skipped": false,
+    "before": 8791817,
+    "after": 563350
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\10_instalacion_estructural.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\10_instalacion_estructural.webp",
+    "skipped": false,
+    "before": 7900253,
+    "after": 269100
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\11_acabados.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\11_acabados.webp",
+    "skipped": false,
+    "before": 7434420,
+    "after": 254912
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\12_edificio_construccion.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\construccion\\12_edificio_construccion.webp",
+    "skipped": false,
+    "before": 8602010,
+    "after": 479718
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\13_mantenimiento_fachada.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\13_mantenimiento_fachada.webp",
+    "skipped": false,
+    "before": 8797683,
+    "after": 605580
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\14_limpieza_altura.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\14_limpieza_altura.webp",
+    "skipped": false,
+    "before": 8088091,
+    "after": 315726
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\15_inspeccion_estructural.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\15_inspeccion_estructural.webp",
+    "skipped": false,
+    "before": 6501941,
+    "after": 229194
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\16_mantenimiento_cubierta.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\16_mantenimiento_cubierta.webp",
+    "skipped": false,
+    "before": 5754260,
+    "after": 205476
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\17_inspeccion_ventanales.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\17_inspeccion_ventanales.webp",
+    "skipped": false,
+    "before": 7736219,
+    "after": 181708
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\18_mantenimiento_preventivo.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\mantenimiento\\18_mantenimiento_preventivo.webp",
+    "skipped": false,
+    "before": 6384309,
+    "after": 205950
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\01_servicios_reunion_cliente.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\01_servicios_reunion_cliente.webp",
+    "skipped": false,
+    "before": 7941056,
+    "after": 279772
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\02_disenando.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\02_disenando.webp",
+    "skipped": false,
+    "before": 8037913,
+    "after": 273838
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\03_revision_planos.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\03_revision_planos.webp",
+    "skipped": false,
+    "before": 7891023,
+    "after": 318140
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\04_coordinacion_tecnica.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\04_coordinacion_tecnica.webp",
+    "skipped": false,
+    "before": 9742850,
+    "after": 272820
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\05_maqueta.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\05_maqueta.webp",
+    "skipped": false,
+    "before": 7032390,
+    "after": 159066
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\06_materiales.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\assets\\servicios\\servicios-profesionales\\06_materiales.webp",
+    "skipped": false,
+    "before": 7895796,
+    "after": 317026
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\acompanamiento.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\acompanamiento.webp",
+    "skipped": false,
+    "before": 2524476,
+    "after": 107234
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\cierre.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\cierre.webp",
+    "skipped": false,
+    "before": 2582035,
+    "after": 154758
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\construccion.jpg",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\construccion.webp",
+    "skipped": false,
+    "before": 138610,
+    "after": 125568
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\crecimiento.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\crecimiento.webp",
+    "skipped": false,
+    "before": 2552261,
+    "after": 142614
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\diseno.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\diseno.webp",
+    "skipped": false,
+    "before": 2530771,
+    "after": 132690
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\filosofia.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\filosofia.webp",
+    "skipped": false,
+    "before": 2439764,
+    "after": 102498
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\hero.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\hero.webp",
+    "skipped": false,
+    "before": 2489957,
+    "after": 126632
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\idea.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\idea.webp",
+    "skipped": false,
+    "before": 2450175,
+    "after": 88666
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\impacto.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\impacto.webp",
+    "skipped": false,
+    "before": 2058835,
+    "after": 207346
+  },
+  {
+    "input": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\planificacion.png",
+    "out": "D:\\Desktop\\marco_arquitectonico\\public\\quienes_somos\\planificacion.webp",
+    "skipped": false,
+    "before": 2752305,
+    "after": 163708
+  }
+]

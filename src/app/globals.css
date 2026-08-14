@@ -1,0 +1,370 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ma-black: #090909;
+  --color-ma-white: #ffffff;
+  --color-ma-orange: #f57c00;
+  --color-ma-gray: #9a9a9a;
+  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, sans-serif;
+  --font-display: var(--font-inter), "Helvetica Neue", Helvetica, sans-serif;
+  --font-mono: var(--font-plex), ui-monospace, monospace;
+  --breakpoint-tablet: 48rem;
+  --breakpoint-laptop: 62rem;
+  --breakpoint-desktop: 75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: #090909;
+  color: #ffffff;
+  /* clip (not hidden): prevents horizontal scroll without breaking position:sticky */
+  overflow-x: clip;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+html.home-no-scroll,
+html.home-no-scroll body {
+  overflow: hidden;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #090909;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Must not pair overflow-x:hidden on both html+body — that kills sticky scrub panels */
+  overflow-x: clip;
+}
+
+/* Prevent accidental horizontal scroll on small viewports */
+@media (max-width: 767px) {
+  .home-cta-solid {
+    min-height: 44px;
+  }
+
+  /* Softer reveal distance on phones — less GPU work */
+  .editorial [data-reveal] {
+    will-change: opacity, transform;
+  }
+}
+
+::selection {
+  background: #f57c00;
+  color: #090909;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cad-grid {
+  background-image:
+    linear-gradient(rgba(154, 154, 154, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(154, 154, 154, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.cad-dots {
+  background-image: radial-gradient(
+    rgba(154, 154, 154, 0.32) 0.55px,
+    transparent 0.55px
+  );
+  background-size: 26px 26px;
+}
+
+@keyframes scroll-frame-fade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-frame-fade {
+  animation: scroll-frame-fade 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.editorial [data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform, filter;
+}
+
+/* ——— Cinematic frame stage (Servicios Profesionales) ——— */
+.frame-cinematic-atmosphere {
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 72% 42%,
+      rgba(245, 124, 0, 0.045) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 90% 80% at 50% 50%,
+      #0c0c0c 0%,
+      #090909 55%,
+      #050505 100%
+    );
+}
+
+.frame-cinematic-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.02;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+}
+
+.frame-cinematic-atmosphere::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 75% 70% at 50% 45%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
+
+.frame-video-mask {
+  /* Edge-only dissolve — center stays fully opaque/sharp */
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 12%,
+      #000 88%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 10%,
+      #000 86%,
+      transparent 100%
+    );
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      #000 12%,
+      #000 88%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 10%,
+      #000 86%,
+      transparent 100%
+    );
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+.frame-edge-fade {
+  /* Extra soft wash at the seam with copy — does not cover the video core */
+  background: linear-gradient(
+    90deg,
+    rgba(9, 9, 9, 0.55) 0%,
+    rgba(9, 9, 9, 0.2) 10%,
+    transparent 22%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.frame-cinematic {
+  overflow: clip;
+}
+
+@media (min-width: 768px) {
+  .frame-cinematic {
+    overflow: visible;
+  }
+}
+
+.editorial-cinematic h1,
+.editorial-cinematic h2 {
+  text-wrap: balance;
+}
+
+.editorial-cinematic section,
+.editorial-cinematic header {
+  scroll-margin-top: 2rem;
+}
+
+/* ——— Home hub (photo backdrop only) ——— */
+.home-hub {
+  background: #070707;
+}
+
+.home-backdrop-photo {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1;
+  filter: contrast(1.04) brightness(0.95);
+}
+
+.home-backdrop-photo--secondary {
+  opacity: 0.28;
+  mix-blend-mode: soft-light;
+}
+
+.home-hub-readability {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 7, 7, 0.62) 0%,
+      rgba(7, 7, 7, 0.28) 36%,
+      rgba(7, 7, 7, 0.12) 55%,
+      rgba(7, 7, 7, 0.35) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 7, 7, 0.4) 0%,
+      transparent 16%,
+      transparent 78%,
+      rgba(7, 7, 7, 0.55) 100%
+    ),
+    radial-gradient(
+      ellipse 85% 80% at 50% 45%,
+      transparent 40%,
+      rgba(7, 7, 7, 0.35) 100%
+    );
+}
+
+.home-cta-solid {
+  background: #f57c00;
+  color: #090909 !important;
+  transition:
+    background 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-cta-solid:hover {
+  background: #ff8f1f;
+  box-shadow:
+    0 0 0 1px rgba(120, 170, 230, 0.35),
+    0 0 28px rgba(100, 160, 230, 0.35),
+    0 0 48px rgba(245, 124, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+/* ——— Cotizar overlay (WhatsApp bridge) ——— */
+.cotizar-overlay {
+  background: rgba(9, 9, 9, 0.42);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cotizar-card {
+  background:
+    linear-gradient(
+      160deg,
+      rgba(18, 28, 40, 0.72) 0%,
+      rgba(9, 9, 9, 0.78) 48%,
+      rgba(12, 18, 26, 0.82) 100%
+    );
+  border: 1px solid rgba(142, 184, 232, 0.12);
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 24px 80px rgba(0, 0, 0, 0.45),
+    0 0 60px rgba(80, 130, 190, 0.08);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+}
+
+.cotizar-status-dot {
+  background: #3dba7a;
+  box-shadow: 0 0 8px rgba(61, 186, 122, 0.55);
+}
+
+.cotizar-wa-btn {
+  background: #2f9e68;
+  color: #f4fff9;
+  transition:
+    background 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cotizar-wa-btn:hover {
+  background: #38b075;
+  box-shadow:
+    0 0 0 1px rgba(120, 170, 230, 0.22),
+    0 10px 32px rgba(47, 158, 104, 0.28),
+    0 0 28px rgba(100, 160, 230, 0.18);
+  transform: translateY(-2px);
+}
+
+.cotizar-pulse {
+  border: 1px solid rgba(142, 184, 232, 0.35);
+  animation: cotizar-pulse 1.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.cotizar-pulse--delay {
+  animation-delay: 0.35s;
+}
+
+@keyframes cotizar-pulse {
+  0% {
+    transform: scale(0.72);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
