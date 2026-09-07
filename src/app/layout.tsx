@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import "./globals.css";
 import "./client-review.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { CotizarProvider } from "@/components/cotizar/CotizarProvider";
-
-const inter = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-});
 
 
 const siteUrl =
@@ -75,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable}`}>
+    <html lang="es">
       <body className="bg-white font-sans text-ma-black antialiased">
         <SmoothScroll>
           <CotizarProvider>

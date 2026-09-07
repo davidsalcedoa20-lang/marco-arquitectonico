@@ -1,14 +1,9 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ClienteCard } from "./ClienteCard";
 import styles from "./clientes.module.css";
 
 type Props = {
   logos: string[];
 };
-
-const ease = [0.22, 1, 0.36, 1] as const;
 
 function logoAlt(src: string) {
   const file = src.split("/").pop() ?? "cliente";
@@ -30,32 +25,21 @@ export function ClientesSection({ logos }: Props) {
     >
       <div className={styles.inner}>
         <header className={styles.header}>
-          <motion.div
-            initial={{ opacity: 0, y: 36 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.7, ease }}
-          >
+          <div>
             <h2 id="clientes-heading" className={styles.title}>
               Clientes que confían
               <br />
               en <span className={styles.titleAccent}>nuestro trabajo</span>
             </h2>
-          </motion.div>
+          </div>
 
           <div className={styles.divider} aria-hidden />
 
-          <motion.p
-            className={styles.description}
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.7, ease, delay: 0.12 }}
-          >
+          <p className={styles.description}>
             Organizaciones públicas y privadas que han confiado su
             infraestructura a nuestro rigor técnico, cumplimiento y compromiso
             de largo plazo.
-          </motion.p>
+          </p>
         </header>
 
         <div className={styles.grid}>

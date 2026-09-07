@@ -6,9 +6,9 @@
   --color-ma-orange: #d97228;
   --color-ma-beige: #ebd7c1;
   --color-ma-gray: #9a9a9a;
-  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, sans-serif;
-  --font-display: var(--font-inter), "Helvetica Neue", Helvetica, sans-serif;
-  --font-mono: var(--font-inter), "Helvetica Neue", Helvetica, sans-serif;
+  --font-sans: Montserrat, Arial, "Helvetica Neue", sans-serif;
+  --font-display: Montserrat, Arial, "Helvetica Neue", sans-serif;
+  --font-mono: Montserrat, Arial, "Helvetica Neue", sans-serif;
   --breakpoint-tablet: 48rem;
   --breakpoint-laptop: 62rem;
   --breakpoint-desktop: 75rem;

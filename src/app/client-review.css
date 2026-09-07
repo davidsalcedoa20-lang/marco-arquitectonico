@@ -1,5 +1,5 @@
 /* Client review: a single type family, clear navigation and three service blocks. */
-:root { --brand-ink: #3a2a1e; --brand-accent: #a94e13; --brand-paper: #faf7f3; }
+:root { --brand-ink: #3a2a1e; --brand-accent: #a94e13; --brand-paper: #faf7f3; --font-inter: Montserrat, Arial, "Helvetica Neue", sans-serif; }
 :focus-visible { outline: 3px solid #a94e13; outline-offset: 5px; }
 html { scroll-padding-top: 112px; }
 main { scroll-margin-top: 112px; }
@@ -52,9 +52,19 @@ main { scroll-margin-top: 112px; }
 .breadcrumbs a { text-decoration: underline; text-underline-offset: 4px; }
 .service-heading { max-width: 900px; margin-bottom: 40px; }
 .service-heading > p:not(.section-label) { max-width: 780px; }
+.service-overview { margin: 0 0 40px; padding: 32px; border-radius: 20px; background: #3a2a1e; color: white; display: grid; grid-template-columns: 1.35fr 1fr; gap: 48px; align-items: center; }
+.service-overview h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.2; font-weight: 600; }
+.service-overview p:not(.section-label) { max-width: 680px; margin-top: 16px; font-size: 17px; line-height: 1.8; color: #f4e8dc; }
+.service-overview .section-label { color: #ffb378; }
+.service-overview ul { display: grid; gap: 12px; }
+.service-overview li { padding: 14px 18px; border: 1px solid #ffffff2b; border-radius: 12px; font-size: 16px; line-height: 1.5; }
 .detail-card { border: 1px solid #e3d9ce; border-radius: 20px; overflow: hidden; background: #fff; }
 .detail-image { position: relative; aspect-ratio: 4/3; }
 .detail-copy { padding: 28px; }
+.detail-copy ul { border-top: 1px solid #e3d9ce; margin-top: 22px; padding-top: 16px; display: grid; gap: 10px; }
+.detail-copy li { position: relative; padding-left: 18px; font-size: 16px; line-height: 1.6; color: #4f4035; }
+.detail-copy li::before { content: ""; position: absolute; left: 0; top: .7em; width: 7px; height: 7px; border-radius: 50%; background: #a94e13; }
+.service-closing { margin: 48px 0 0; padding: 36px 5vw; border-radius: 20px; background: #f5ede4; color: #3a2a1e; font-size: clamp(23px, 3vw, 34px); line-height: 1.4; font-weight: 600; text-align: center; }
 .related-services { border-top: 1px solid #e3d9ce; margin-top: 48px; padding-top: 24px; display: flex; align-items: center; flex-wrap: wrap; gap: 12px 32px; font-size: 16px; }
 .quote-dialog { padding: 0; border: 1px solid #e3d9ce; border-radius: 24px; color: var(--brand-ink); background: white; width: min(560px, calc(100% - 32px)); max-height: calc(100dvh - 32px); margin: auto; }
 .quote-dialog::backdrop { background: #21170fb0; }
@@ -84,6 +94,30 @@ main { scroll-margin-top: 112px; }
 .about-page .overflow-hidden:has(> img), .about-page article { border-radius: 20px; }
 .about-page .about-philosophy { min-height: 0; }
 .about-page .about-philosophy > div:last-child { min-height: 0; padding-block: 72px; }
+.timeline-section { padding: 72px 0; background: #faf7f3; }
+.timeline-heading { max-width: 760px; margin-bottom: 40px; }
+.timeline-heading h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.15; font-weight: 600; letter-spacing: -.035em; }
+.timeline-heading > p:not(.section-label) { margin-top: 18px; font-size: 17px; line-height: 1.8; color: #625246; }
+.timeline-list { position: relative; display: grid; gap: 0; }
+.timeline-list::before { content: ""; position: absolute; left: 107px; top: 16px; bottom: 16px; width: 2px; background: #d8b99f; }
+.timeline-list li { position: relative; }
+.timeline-card { display: grid; grid-template-columns: 84px 1fr; gap: 48px; align-items: start; width: 100%; padding: 24px 0; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.timeline-card::before { content: ""; position: absolute; left: 100px; top: 34px; width: 16px; height: 16px; border: 4px solid #faf7f3; border-radius: 50%; background: #a94e13; box-shadow: 0 0 0 1px #a94e13; }
+.timeline-year { font-size: 16px; line-height: 1.5; font-weight: 700; color: #a94e13; text-align: right; }
+.timeline-card > div { max-width: 760px; padding: 22px 26px; border: 1px solid #e3d9ce; border-radius: 18px; background: white; transition: border-color .25s ease, background-color .25s ease, box-shadow .25s ease; }
+.timeline-card h3 { font-size: 21px; line-height: 1.35; font-weight: 600; }
+.timeline-card p { margin-top: 10px; font-size: 16px; line-height: 1.75; color: #625246; }
+.timeline-card:hover > div { border-color: #cfa47f; }
+.timeline-card.is-active > div { border-color: #a94e13; background: #fbf3ec; box-shadow: 0 10px 28px rgba(169, 78, 19, .14); }
+.timeline-card.is-active::before { box-shadow: 0 0 0 1px #a94e13, 0 0 0 5px rgba(169, 78, 19, .18); }
+.timeline-interactive { display: grid; gap: 40px; align-items: start; }
+.timeline-image { position: relative; aspect-ratio: 4/3; border-radius: 20px; overflow: hidden; background: #e7dccd; }
+.timeline-image img { object-fit: cover; }
+.timeline-image-tag { position: absolute; left: 20px; bottom: 20px; padding: 8px 16px; border-radius: 999px; background: #21170fcc; color: white; font-size: 16px; font-weight: 700; letter-spacing: .02em; }
+@media (min-width: 900px) {
+  .timeline-interactive { grid-template-columns: 1.15fr 1fr; gap: 56px; }
+  .timeline-image { position: sticky; top: 132px; }
+}
 @media (min-width: 768px) {
   .about-page p:not([class*="font-mono"]):not(.section-label) { text-align: justify; hyphens: auto; }
   .about-page .text-center p { text-align: center; }
@@ -104,6 +138,7 @@ main { scroll-margin-top: 112px; }
   .corporate-carousel { height: 400px; }
   .service-grid { gap: 16px; }
   .service-card, .detail-copy { padding: 20px; }
+  .service-overview { grid-template-columns: 1fr; gap: 24px; }
   .service-card h2, .detail-card h2 { font-size: 20px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid > :last-child { grid-column: 1/-1; }
@@ -124,6 +159,13 @@ main { scroll-margin-top: 112px; }
   .service-detail { padding-top: 116px; }
   .breadcrumbs { gap: 8px; }
   .service-heading > p:not(.section-label) { font-size: 16px; }
+  .service-overview { padding: 24px 20px; }
+  .service-closing { padding: 28px 20px; }
+  .timeline-list::before { left: 7px; }
+  .timeline-card { grid-template-columns: 1fr; gap: 8px; padding-left: 28px; }
+  .timeline-card::before { left: 0; top: 29px; }
+  .timeline-year { text-align: left; }
+  .timeline-card > div { padding: 20px; }
   .footer-grid { grid-template-columns: 1fr; }
   .footer-grid > :last-child { grid-column: auto; }
   .about-page > section:first-child { padding-top: 116px; }
