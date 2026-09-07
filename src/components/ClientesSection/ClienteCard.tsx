@@ -32,6 +32,8 @@ export function ClienteCard({ src, alt, index }: Props) {
         loading="lazy"
         decoding="async"
       />
+      <p className={styles.clientName}>{alt}</p>
     </motion.article>
   );
 }
+

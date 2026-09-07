@@ -112,7 +112,7 @@ export function ScrollFrameArticle({
           className={`relative z-20 w-full px-5 pt-24 pb-10 sm:px-6 md:pb-24 ${
             cinematic
               ? "bg-ma-black md:bg-transparent md:pr-6 lg:pl-14 lg:pr-4 xl:pl-16"
-              : "bg-ma-black md:px-8 lg:px-10 xl:px-12"
+              : "bg-white md:px-8 lg:px-10 xl:px-12"
           }`}
           style={
             isDesktop

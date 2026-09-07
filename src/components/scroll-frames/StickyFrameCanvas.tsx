@@ -180,10 +180,10 @@ export function StickyFrameCanvas({
     >
       {cinematic && (
         <div
-          className="pointer-events-none absolute -inset-[12%] z-0 opacity-50 blur-[80px]"
+          className="pointer-events-none absolute -inset-[12%] z-0 opacity-30 blur-[80px]"
           style={{
             background:
-              "radial-gradient(ellipse 55% 50% at 58% 48%, rgba(245,124,0,0.11) 0%, rgba(160,80,20,0.04) 40%, transparent 68%)",
+              "radial-gradient(ellipse 55% 50% at 58% 48%, rgba(245,124,0,0.07) 0%, rgba(160,80,20,0.025) 40%, transparent 68%)",
             transform: `translate3d(${floatX * 0.25}px, ${floatY * 0.35}px, 0)`,
           }}
           aria-hidden
@@ -243,10 +243,20 @@ export function StickyFrameCanvas({
       )}
 
       {cinematic && (
-        <div
-          className="frame-edge-fade pointer-events-none absolute inset-0 z-[1]"
-          aria-hidden
-        />
+        <>
+          <div
+            className="frame-edge-fade pointer-events-none absolute inset-0 z-[1]"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-0 z-[1]"
+            style={{
+              background:
+                "radial-gradient(ellipse 68% 60% at 55% 45%, transparent 45%, rgba(9,9,9,0.18) 78%, rgba(9,9,9,0.4) 100%)",
+            }}
+            aria-hidden
+          />
+        </>
       )}
 
       {!bootstrapped && (

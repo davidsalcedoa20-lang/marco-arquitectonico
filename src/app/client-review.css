@@ -1,0 +1,138 @@
+/* Client review: a single type family, clear navigation and three service blocks. */
+:root { --brand-ink: #3a2a1e; --brand-accent: #a94e13; --brand-paper: #faf7f3; }
+:focus-visible { outline: 3px solid #a94e13; outline-offset: 5px; }
+html { scroll-padding-top: 112px; }
+main { scroll-margin-top: 112px; }
+.section-label { font-size: 16px; font-weight: 600; color: var(--brand-accent); margin: 0 0 16px; }
+.page-container { width: min(1320px, calc(100% - 80px)); margin-inline: auto; }
+.primary-button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 12px 24px; border-radius: 999px; background: #d97228; color: #29180d; font-size: 16px; font-weight: 600; transition: background .2s; }
+.primary-button:hover { background: #ed934e; }
+.text-link { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; font-size: 16px; font-weight: 600; text-decoration: underline; text-underline-offset: 5px; }
+.text-link:hover { color: var(--brand-accent); }
+.corporate-header { position: fixed; z-index: 50; top: 0; inset-inline: 0; background: #fff; border-bottom: 1px solid #e6dfd7; }
+.corporate-header-inner { max-width: 1440px; margin: auto; min-height: 104px; padding: 12px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.corporate-brand { display: inline-flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.corporate-brand img { width: 72px; height: 72px; object-fit: contain; }
+.corporate-brand span { font-size: 20px; line-height: 1.35; font-weight: 600; letter-spacing: -.02em; }
+.desktop-nav { display: flex; align-items: center; gap: 28px; }
+.desktop-nav a { padding: 12px 0; font-size: 16px; }
+[aria-current="page"] { font-weight: 600; }
+.desktop-nav [aria-current="page"] { text-decoration: underline; text-decoration-color: var(--brand-accent); text-underline-offset: 8px; }
+.header-actions { display: flex; align-items: center; gap: 8px; }
+.menu-toggle, .mobile-quote, .mobile-nav { display: none; }
+.skip-link { position: absolute; top: -100px; left: 20px; background: white; padding: 16px; z-index: 100; }
+.skip-link:focus { top: 12px; }
+.corporate-home { padding: 136px 40px 64px; max-width: 1440px; margin: auto; }
+.corporate-hero { display: grid; grid-template-columns: 1fr 1.1fr; align-items: center; gap: 48px; }
+.corporate-intro h1, .service-heading h1 { font-size: clamp(32px, 4vw, 54px); line-height: 1.12; letter-spacing: -.04em; font-weight: 600; text-wrap: balance; }
+.corporate-intro h1 span { color: var(--brand-accent); }
+.corporate-intro > p:not(.section-label), .service-heading > p:not(.section-label) { margin-top: 24px; font-size: 18px; line-height: 1.8; color: #625246; }
+.corporate-intro > .text-link { margin-top: 24px; }
+.corporate-carousel { min-width: 0; position: relative; height: 470px; overflow: hidden; border-radius: 24px; background: #574533; }
+.corporate-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .7s ease; }
+.corporate-slide.is-active { opacity: 1; }
+.carousel-caption { position: absolute; inset: auto 0 0; padding: 100px 28px 78px; background: linear-gradient(transparent,rgba(25,17,11,.88)); color: white; }
+.carousel-caption p { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+.carousel-caption span { font-size: 16px; line-height: 1.6; }
+.carousel-controls { position: absolute; bottom: 16px; inset-inline: 20px; display: flex; justify-content: space-between; color: white; align-items: center; }
+.carousel-dots { display: flex; }
+.carousel-dots button { width: 44px; height: 44px; display: grid; place-items: center; }
+.carousel-dots span { width: 10px; height: 10px; border-radius: 50%; border: 1px solid white; }
+.carousel-dots [aria-pressed="true"] span { background: white; width: 24px; border-radius: 10px; }
+.carousel-pause { border: 1px solid #ffffffa0; border-radius: 999px; padding: 8px 16px; min-height: 44px; font-size: 16px; }
+.service-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; scroll-margin-top: 128px; }
+.corporate-home > .service-grid { margin-top: 40px; }
+.service-card { padding: 28px; border: 1px solid #e3d9ce; border-radius: 20px; background: var(--brand-paper); display: flex; flex-direction: column; align-items: flex-start; transition: border-color .2s, background .2s; }
+.service-card:hover { border-color: #b3652c; background: #f5ede4; }
+.service-card h2, .detail-card h2 { font-size: 23px; line-height: 1.35; font-weight: 600; margin: 0 0 16px; }
+.service-card > p, .detail-copy > p:not(.section-label) { font-size: 16px; line-height: 1.8; color: #625246; margin: 0 0 20px; }
+.service-card .text-link { margin-top: auto; }
+.service-detail { padding: 144px 0 72px; }
+.breadcrumbs { display: flex; flex-wrap: wrap; gap: 12px; font-size: 16px; margin-bottom: 36px; }
+.breadcrumbs a { text-decoration: underline; text-underline-offset: 4px; }
+.service-heading { max-width: 900px; margin-bottom: 40px; }
+.service-heading > p:not(.section-label) { max-width: 780px; }
+.detail-card { border: 1px solid #e3d9ce; border-radius: 20px; overflow: hidden; background: #fff; }
+.detail-image { position: relative; aspect-ratio: 4/3; }
+.detail-copy { padding: 28px; }
+.related-services { border-top: 1px solid #e3d9ce; margin-top: 48px; padding-top: 24px; display: flex; align-items: center; flex-wrap: wrap; gap: 12px 32px; font-size: 16px; }
+.quote-dialog { padding: 0; border: 1px solid #e3d9ce; border-radius: 24px; color: var(--brand-ink); background: white; width: min(560px, calc(100% - 32px)); max-height: calc(100dvh - 32px); margin: auto; }
+.quote-dialog::backdrop { background: #21170fb0; }
+.quote-content { position: relative; padding: 48px 36px 36px; }
+.quote-close { position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; font-size: 28px; }
+.quote-content h2 { font-size: 32px; line-height: 1.2; font-weight: 600; }
+.quote-content > p:not(.section-label) { font-size: 16px; line-height: 1.8; margin: 24px 0; }
+.corporate-footer { background: var(--brand-paper); padding: 56px 0 24px; border-top: 1px solid #e3d9ce; }
+.footer-heading { max-width: 760px; margin-bottom: 40px; }
+.footer-heading h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.2; font-weight: 600; }
+.footer-heading p { font-size: 18px; margin-top: 16px; line-height: 1.7; }
+.footer-grid { display: grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 36px; }
+.footer-grid > * { min-width: 0; }
+.footer-grid h3 { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+.footer-grid p { font-size: 16px; line-height: 1.8; margin: 16px 0; }
+.footer-grid nav a { display: block; font-size: 16px; line-height: 1.6; padding: 8px 0; }
+.footer-grid .text-link { overflow-wrap: anywhere; }
+.footer-grid iframe { width: 100%; height: 180px; border: 1px solid #ded2c5; border-radius: 16px; }
+.footer-credits { border-top: 1px solid #ded2c5; padding-top: 24px; margin-top: 36px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 16px; line-height: 1.6; color: #625246; }
+.about-page > section:not(.about-philosophy) { padding-top: 64px; padding-bottom: 64px; }
+.about-page > section:first-child { padding-top: 144px; }
+.about-page p { line-height: 1.8; }
+.about-page [class*="text-ma-black/"] { color: #625246; }
+.about-page [class*="text-white/"] { color: #fff; }
+.about-page [class*="text-ma-orange"] { color: var(--brand-accent); }
+.about-page .about-philosophy [class*="text-ma-orange"] { color: #ffb378; }
+.about-page .overflow-hidden:has(> img), .about-page article { border-radius: 20px; }
+.about-page .about-philosophy { min-height: 0; }
+.about-page .about-philosophy > div:last-child { min-height: 0; padding-block: 72px; }
+@media (min-width: 768px) {
+  .about-page p:not([class*="font-mono"]):not(.section-label) { text-align: justify; hyphens: auto; }
+  .about-page .text-center p { text-align: center; }
+}
+@media (max-width: 1100px) {
+  .desktop-nav { gap: 16px; }
+  .corporate-header-inner { gap: 16px; }
+  .corporate-brand span { font-size: 18px; }
+}
+@media (max-width: 900px) {
+  .desktop-nav, .desktop-quote { display: none; }
+  .mobile-quote { display: inline; }
+  .menu-toggle { display: block; height: 44px; width: 44px; font-size: 24px; border: 1px solid #ded2c5; border-radius: 50%; }
+  .mobile-nav { display: flex; flex-direction: column; padding: 8px 24px 24px; gap: 4px; border-top: 1px solid #ded2c5; }
+  .mobile-nav a { padding: 12px; font-size: 16px; }
+  .corporate-hero { grid-template-columns: 1fr; gap: 28px; }
+  .corporate-intro { max-width: 640px; }
+  .corporate-carousel { height: 400px; }
+  .service-grid { gap: 16px; }
+  .service-card, .detail-copy { padding: 20px; }
+  .service-card h2, .detail-card h2 { font-size: 20px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid > :last-child { grid-column: 1/-1; }
+}
+@media (max-width: 700px) {
+  .page-container { width: calc(100% - 40px); }
+  .corporate-header-inner { min-height: 88px; padding: 10px 16px; gap: 8px; }
+  .corporate-brand { gap: 8px; }
+  .corporate-brand img { width: 52px; height: 52px; }
+  .corporate-brand span { font-size: 16px; }
+  .header-actions { gap: 4px; }
+  .header-actions .primary-button { padding: 10px 14px; min-height: 44px; }
+  .corporate-home { padding: 116px 20px 48px; }
+  .corporate-carousel { height: 340px; }
+  .corporate-intro > p:not(.section-label) { font-size: 16px; }
+  .service-grid { grid-template-columns: 1fr; gap: 16px; }
+  .service-card { padding: 24px; }
+  .service-detail { padding-top: 116px; }
+  .breadcrumbs { gap: 8px; }
+  .service-heading > p:not(.section-label) { font-size: 16px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-grid > :last-child { grid-column: auto; }
+  .about-page > section:first-child { padding-top: 116px; }
+  .about-page > section:not(.about-philosophy) { padding-bottom: 40px; }
+}
+@media (max-width: 359px) {
+  .corporate-header-inner { padding-inline: 10px; }
+  .corporate-brand img { width: 40px; height: 40px; }
+  .corporate-brand { gap: 5px; }
+  .header-actions .primary-button { padding-inline: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .corporate-slide, .service-card { transition: none; } }

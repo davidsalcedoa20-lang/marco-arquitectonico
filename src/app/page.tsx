@@ -6,9 +6,10 @@ export default function HomePage() {
   const logos = getClientLogos();
 
   return (
-    <main className="bg-ma-black">
+    <main id="contenido" className="bg-white">
       <HomeHub />
       <ClientesSection logos={logos} />
     </main>
   );
 }
+

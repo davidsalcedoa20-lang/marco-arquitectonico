@@ -31,19 +31,20 @@ export function ConstructionLot({ progress }: Props) {
       const x = pos.getX(i);
       const z = pos.getZ(i);
       const n =
-        Math.sin(x * 0.35) * Math.cos(z * 0.28) * 0.08 +
-        Math.sin(x * 1.1 + z * 0.7) * 0.03;
+        Math.sin(x * 0.35) * Math.cos(z * 0.28) * 0.035 +
+        Math.sin(x * 1.1 + z * 0.7) * 0.012;
       const inPit =
         Math.abs(x) < PIT_W / 2 + 0.8 && Math.abs(z) < PIT_D / 2 + 0.8;
       if (!inPit) {
-        pos.setY(i, n * 0.45);
+        pos.setY(i, n * 0.4);
       } else {
         pos.setY(i, -0.02);
       }
-      const shade = 0.14 + hash(i) * 0.07 + n * 0.15;
-      colors[i * 3] = 0.18 + shade * 0.35;
-      colors[i * 3 + 1] = 0.12 + shade * 0.22;
-      colors[i * 3 + 2] = 0.08 + shade * 0.12;
+      // Urban lot — grey dirt/asphalt mix, not rural soil.
+      const shade = 0.16 + hash(i) * 0.06 + n * 0.2;
+      colors[i * 3] = 0.17 + shade * 0.24;
+      colors[i * 3 + 1] = 0.165 + shade * 0.23;
+      colors[i * 3 + 2] = 0.15 + shade * 0.21;
     }
     geo.setAttribute("color", new THREE.BufferAttribute(colors, 3));
     geo.computeVertexNormals();
@@ -181,8 +182,42 @@ export function ConstructionLot({ progress }: Props) {
       {/* Scattered stones */}
       <instancedMesh ref={stonesRef} args={[undefined, undefined, stoneData.length]}>
         <dodecahedronGeometry args={[1, 0]} />
-        <meshStandardMaterial color="#3d342c" roughness={0.95} flatShading />
+        <meshStandardMaterial color="#5c584f" roughness={0.95} flatShading />
       </instancedMesh>
+
+      {/* Cerramiento — malla verde de obra, borde del lote urbano */}
+      {(
+        [
+          [0, 0.7, PIT_D / 2 + 1.1, PIT_W + 2.6, 1.4, 0.06],
+          [0, 0.7, -(PIT_D / 2 + 1.1), PIT_W + 2.6, 1.4, 0.06],
+          [PIT_W / 2 + 1.3, 0.7, 0, 0.06, 1.4, PIT_D + 2.2],
+          [-(PIT_W / 2 + 1.3), 0.7, 0, 0.06, 1.4, PIT_D + 2.2],
+        ] as const
+      ).map(([x, y, z, w, h, d], i) => (
+        <mesh key={`fence-${i}`} position={[x, y, z]} castShadow>
+          <boxGeometry args={[w, h, d]} />
+          <meshStandardMaterial
+            color="#1f5c34"
+            roughness={0.95}
+            metalness={0}
+            transparent
+            opacity={0.85}
+          />
+        </mesh>
+      ))}
+      {(
+        [
+          [PIT_W / 2 + 1.3, PIT_D / 2 + 1.1],
+          [-(PIT_W / 2 + 1.3), PIT_D / 2 + 1.1],
+          [PIT_W / 2 + 1.3, -(PIT_D / 2 + 1.1)],
+          [-(PIT_W / 2 + 1.3), -(PIT_D / 2 + 1.1)],
+        ] as const
+      ).map(([x, z], i) => (
+        <mesh key={`post-${i}`} position={[x, 0.75, z]}>
+          <cylinderGeometry args={[0.05, 0.05, 1.5, 6]} />
+          <meshStandardMaterial color="#4a4a4a" roughness={0.6} metalness={0.4} />
+        </mesh>
+      ))}
     </group>
   );
 }

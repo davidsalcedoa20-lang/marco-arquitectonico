@@ -29,10 +29,10 @@ export function CtaSection() {
 
           <div className="absolute inset-0 flex items-center justify-center px-6 py-16">
             <FadeIn className="max-w-2xl text-center">
-              <h2 className="text-[clamp(1.9rem,4vw,3.1rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-white">
+              <h2 className="text-[clamp(2rem,4.2vw,3.4rem)] leading-[1.08] font-semibold tracking-[-0.03em] text-white">
                 ¿Hablamos de tu proyecto?
               </h2>
-              <p className="mx-auto mt-6 max-w-md text-[15px] leading-[1.8] text-white/55 md:text-[16px]">
+              <p className="mx-auto mt-6 max-w-md text-[16px] leading-[1.8] text-white/55">
                 Cuéntanos tu idea y juntos la haremos realidad — con claridad,
                 cercanía y el mismo cuidado que ponemos en cada obra.
               </p>
@@ -40,10 +40,10 @@ export function CtaSection() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="home-cta-solid mt-10 inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-[10px] font-medium tracking-[0.22em] md:mt-12 md:text-[11px]"
+                className="home-cta-solid mt-10 inline-flex items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-[16px] font-semibold tracking-[0.04em] md:mt-12"
               >
                 <WhatsAppIcon />
-                ESCRÍBENOS POR WHATSAPP
+                Escríbenos por WhatsApp
               </a>
             </FadeIn>
           </div>

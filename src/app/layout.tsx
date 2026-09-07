@@ -1,25 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, IBM_Plex_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
+import "./client-review.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { CotizarProvider } from "@/components/cotizar/CotizarProvider";
 
-const inter = Inter({
+const inter = Montserrat({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-inter",
   display: "swap",
   preload: true,
 });
 
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-plex",
-  display: "swap",
-  preload: false,
-});
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://marcoarquitectonico.com";
@@ -80,8 +75,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${plexMono.variable}`}>
-      <body className="bg-ma-black font-sans text-ma-white antialiased">
+    <html lang="es" className={`${inter.variable}`}>
+      <body className="bg-white font-sans text-ma-black antialiased">
         <SmoothScroll>
           <CotizarProvider>
             <Header />
@@ -93,3 +88,4 @@ export default function RootLayout({
     </html>
   );
 }
+

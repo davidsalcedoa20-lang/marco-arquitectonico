@@ -17,7 +17,16 @@ export function ConstructionSkyline() {
       d: number;
       tone: string;
     }[] = [];
-    const tones = ["#1a1a1c", "#222226", "#18181b", "#2a2a30", "#141416"];
+    // Mix of dark towers with muted brick tones — ladrillo bogotano cue.
+    const tones = [
+      "#1a1a1c",
+      "#222226",
+      "#18181b",
+      "#2a2a30",
+      "#141416",
+      "#4a3226",
+      "#3a2a20",
+    ];
     for (let i = 0; i < 28; i++) {
       const x = -22 + (i % 14) * 3.4 + (i > 13 ? 1.2 : 0);
       const z = -26 - (i > 13 ? 6 : 0) - (i % 3) * 1.5;
@@ -60,6 +69,22 @@ export function ConstructionSkyline() {
     return geo;
   }, []);
 
+  /** Solitary tall peak — breaks up the ridge line, closer & taller than the rolling hills. */
+  const tallPeakGeo = useMemo(() => {
+    const shape = new THREE.Shape();
+    shape.moveTo(-40, 0);
+    shape.lineTo(-15, 2.4);
+    shape.lineTo(-6.5, 6.2);
+    shape.lineTo(-1, 9.8);
+    shape.lineTo(3.5, 6.6);
+    shape.lineTo(11, 3.6);
+    shape.lineTo(24, 1.8);
+    shape.lineTo(40, 0);
+    shape.lineTo(-40, 0);
+    const geo = new THREE.ShapeGeometry(shape);
+    return geo;
+  }, []);
+
   return (
     <group>
       {/* Soft dusk sky wash via large back plane */}
@@ -72,17 +97,18 @@ export function ConstructionSkyline() {
         <meshBasicMaterial color="#2a2218" transparent opacity={0.35} />
       </mesh>
 
-      {/* Mountains */}
+      {/* Mountains — cerros orientales de Bogotá */}
       <mesh
         geometry={mountainGeo}
         position={[0, 0.2, -42]}
         scale={[1.1, 1.15, 1]}
       >
         <meshStandardMaterial
-          color="#0e1014"
+          color="#232b38"
           roughness={1}
           metalness={0}
           side={THREE.DoubleSide}
+          fog={false}
         />
       </mesh>
       <mesh
@@ -91,10 +117,28 @@ export function ConstructionSkyline() {
         scale={[0.85, 0.7, 1]}
       >
         <meshStandardMaterial
-          color="#151820"
+          color="#2c3440"
           roughness={1}
           metalness={0}
           side={THREE.DoubleSide}
+          fog={false}
+        />
+      </mesh>
+
+      {/* Solitary tall peak, closer and taller than the ridge */}
+      <mesh
+        geometry={tallPeakGeo}
+        position={[2, 0.15, -34]}
+        scale={[0.6, 1.05, 1]}
+      >
+        <meshStandardMaterial
+          color="#333c4a"
+          emissive="#5a3a1c"
+          emissiveIntensity={0.06}
+          roughness={0.95}
+          metalness={0}
+          side={THREE.DoubleSide}
+          fog={false}
         />
       </mesh>
 

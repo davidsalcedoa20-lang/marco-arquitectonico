@@ -93,7 +93,7 @@ export function FooterBlueprint({ className = "" }: Props) {
         <path data-draw d="M140 120 V360" opacity="0" />
         <path data-draw d="M220 120 V360" opacity="0" />
         <path data-draw d="M290 120 V360" opacity="0" />
-        <path data-draw data-glow="1" stroke="#f57c00" d="M70 360 L360 120" opacity="0" />
+        <path data-draw data-glow="1" stroke="#d97228" d="M70 360 L360 120" opacity="0" />
         <path data-draw d="M95 160 H125 V190 H95 Z" opacity="0" />
         <path data-draw d="M165 220 H195 V250 H165 Z" opacity="0" />
         <path data-draw d="M245 160 H275 V190 H245 Z" opacity="0" />
@@ -108,7 +108,7 @@ export function FooterBlueprint({ className = "" }: Props) {
       </g>
 
       {/* Dimension ticks */}
-      <g stroke="#f57c00" strokeWidth="1" opacity="0.55">
+      <g stroke="#d97228" strokeWidth="1" opacity="0.55">
         <path data-draw data-glow="1" d="M380 360 V120" opacity="0" />
         <path data-draw data-glow="1" d="M375 120 H385" opacity="0" />
         <path data-draw data-glow="1" d="M375 200 H385" opacity="0" />
@@ -132,21 +132,21 @@ export function FooterBlueprint({ className = "" }: Props) {
         <path
           data-draw
           data-glow="1"
-          stroke="#f57c00"
+          stroke="#d97228"
           d="M660 240 L700 220 L740 240 L700 260 Z"
           opacity="0"
         />
         <path
           data-draw
           data-glow="1"
-          stroke="#f57c00"
+          stroke="#d97228"
           d="M680 230 V205 L700 195 L720 205 V230"
           opacity="0"
         />
         {/* Soft fill glow room */}
         <path
           d="M660 240 L700 220 L740 240 L700 260 Z"
-          fill="rgba(245,124,0,0.12)"
+          fill="rgba(217,114,40,0.12)"
           stroke="none"
         />
       </g>

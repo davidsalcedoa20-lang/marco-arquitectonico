@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ma-black: #090909;
+  --color-ma-black: #3a2a1e;
   --color-ma-white: #ffffff;
-  --color-ma-orange: #f57c00;
+  --color-ma-orange: #d97228;
+  --color-ma-beige: #ebd7c1;
   --color-ma-gray: #9a9a9a;
   --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, sans-serif;
   --font-display: var(--font-inter), "Helvetica Neue", Helvetica, sans-serif;
-  --font-mono: var(--font-plex), ui-monospace, monospace;
+  --font-mono: var(--font-inter), "Helvetica Neue", Helvetica, sans-serif;
   --breakpoint-tablet: 48rem;
   --breakpoint-laptop: 62rem;
   --breakpoint-desktop: 75rem;
@@ -20,8 +21,8 @@
 }
 
 html {
-  background: #090909;
-  color: #ffffff;
+  background: #ffffff;
+  color: #3a2a1e;
   /* clip (not hidden): prevents horizontal scroll without breaking position:sticky */
   overflow-x: clip;
 }
@@ -53,8 +54,8 @@ html.home-no-scroll body {
 body {
   margin: 0;
   min-height: 100vh;
-  background: #090909;
-  color: #ffffff;
+  background: #ffffff;
+  color: #3a2a1e;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -75,8 +76,8 @@ body {
 }
 
 ::selection {
-  background: #f57c00;
-  color: #090909;
+  background: #d97228;
+  color: #ffffff;
 }
 
 a {
@@ -132,7 +133,7 @@ button {
   background:
     radial-gradient(
       ellipse 70% 55% at 72% 42%,
-      rgba(245, 124, 0, 0.045) 0%,
+      rgba(217, 114, 40, 0.045) 0%,
       transparent 55%
     ),
     radial-gradient(
@@ -280,8 +281,8 @@ button {
 }
 
 .home-cta-solid {
-  background: #f57c00;
-  color: #090909 !important;
+  background: #d97228;
+  color: #3a2a1e !important;
   transition:
     background 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
@@ -289,11 +290,11 @@ button {
 }
 
 .home-cta-solid:hover {
-  background: #ff8f1f;
+  background: #e8863f;
   box-shadow:
-    0 0 0 1px rgba(120, 170, 230, 0.35),
-    0 0 28px rgba(100, 160, 230, 0.35),
-    0 0 48px rgba(245, 124, 0, 0.25);
+    0 0 0 1px rgba(217, 114, 40, 0.3),
+    0 0 28px rgba(217, 114, 40, 0.3),
+    0 0 48px rgba(217, 114, 40, 0.22);
   transform: translateY(-1px);
 }
 
@@ -368,3 +369,4 @@ button {
     opacity: 0;
   }
 }
+

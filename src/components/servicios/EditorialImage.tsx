@@ -43,12 +43,12 @@ export function EditorialImage({
       className={`editorial-figure my-8 md:my-14 ${layoutClass[layout]} ${className}`}
     >
       {label ? (
-        <figcaption className="mb-3 font-mono text-[10px] tracking-[0.32em] text-ma-orange">
+        <figcaption className="mb-4 font-mono text-[16px] font-semibold tracking-[0.06em] text-ma-orange">
           {label}
         </figcaption>
       ) : null}
       <div
-        className={`relative ${aspect} overflow-hidden rounded-[6px] bg-white/[0.03] shadow-[0_16px_48px_rgba(0,0,0,0.5)] ring-1 ring-white/[0.07]`}
+        className={`relative ${aspect} overflow-hidden rounded-[20px] bg-white/[0.03] shadow-[0_16px_48px_rgba(0,0,0,0.5)] ring-1 ring-white/[0.07]`}
       >
         <Image
           src={src}
@@ -85,11 +85,11 @@ export function EditorialImagePair({ left, right, className = "" }: PairProps) {
       {[left, right].map((img) => (
         <div key={img.src} className="min-w-0">
           {img.label ? (
-            <p className="mb-3 font-mono text-[10px] tracking-[0.32em] text-ma-orange">
+            <p className="mb-4 font-mono text-[16px] font-semibold tracking-[0.06em] text-ma-orange">
               {img.label}
             </p>
           ) : null}
-          <div className="relative aspect-[3/4] overflow-hidden rounded-[6px] bg-white/[0.03] shadow-[0_16px_48px_rgba(0,0,0,0.5)] ring-1 ring-white/[0.07] sm:aspect-[4/5]">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-[20px] bg-white/[0.03] shadow-[0_16px_48px_rgba(0,0,0,0.5)] ring-1 ring-white/[0.07] sm:aspect-[4/5]">
             <Image
               src={img.src}
               alt={img.alt}

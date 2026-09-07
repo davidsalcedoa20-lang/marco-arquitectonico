@@ -14,12 +14,9 @@ const PILLARS = [
   },
   {
     title: "Equipo",
-    text: "Profesionales multidisciplinarios que hablan el mismo idioma: calidad, detalle y responsabilidad.",
+    text: "Profesionales que coordinan cada disciplina y acompañan el proyecto hasta la entrega.",
   },
-  {
-    title: "Compromiso",
-    text: "Acompañamos hasta el final — y más allá — porque la confianza se construye con presencia.",
-  },
+
 ] as const;
 
 export function EvolucionSection() {
@@ -28,30 +25,30 @@ export function EvolucionSection() {
       <div className="mx-auto grid max-w-[1600px] items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16 xl:gap-24">
         <div>
           <FadeIn>
-            <p className="mb-5 font-mono text-[10px] tracking-[0.38em] text-ma-orange md:text-[11px]">
-              NUESTRA EVOLUCIÓN
+            <p className="mb-5 font-mono text-[16px] font-semibold tracking-[0.06em] text-ma-orange">
+              Nuestra evolución
             </p>
-            <h2 className="max-w-lg text-[clamp(1.85rem,3.4vw,2.85rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-white">
+            <h2 className="max-w-lg text-[clamp(2rem,4.2vw,3.4rem)] leading-[1.08] font-semibold tracking-[-0.03em] text-ma-black">
               Un camino de crecimiento constante
             </h2>
-            <p className="mt-6 max-w-md text-[15px] leading-[1.8] text-white/50 md:text-[16px]">
+            <p className="mt-6 max-w-md text-[16px] leading-[1.8] text-ma-black/65">
               Cada proyecto nos ha permitido crecer, perfeccionar nuestros
               procesos y consolidar un equipo capaz de afrontar proyectos cada
               vez más ambiciosos.
             </p>
           </FadeIn>
 
-          <div className="mt-12 grid gap-px bg-white/10 sm:grid-cols-2">
+          <div className="mt-8 grid gap-4">
             {PILLARS.map((item, i) => (
               <FadeIn
                 key={item.title}
                 delay={0.08 * i}
-                className="bg-[#0a0a0a] px-0 py-8 sm:p-8"
+                className="rounded-[20px] bg-ma-beige/25 p-6"
               >
-                <h3 className="text-[15px] font-medium tracking-[0.04em] text-white md:text-[16px]">
+                <h3 className="text-[16px] font-semibold tracking-[0.02em] text-ma-black">
                   {item.title}
                 </h3>
-                <p className="mt-3 max-w-sm text-[13px] leading-[1.75] text-white/45 md:text-[14px]">
+                <p className="mt-3 max-w-sm text-[16px] leading-[1.75] text-ma-black/60">
                   {item.text}
                 </p>
               </FadeIn>
@@ -62,8 +59,8 @@ export function EvolucionSection() {
         <FadeIn delay={0.1} className="relative">
           <div className="relative aspect-[4/5] overflow-hidden md:aspect-[5/6] lg:aspect-[4/5]">
             <Image
-              src="/quienes_somos/crecimiento.webp"
-              alt="Proceso de diseño y construcción en evolución"
+              src="/quienes_somos/planificacion.webp"
+              alt="Equipo planificando el desarrollo de una obra"
               fill
               loading="lazy"
               sizes="(max-width: 1024px) 100vw, 48vw"
@@ -83,3 +80,4 @@ export function EvolucionSection() {
     </section>
   );
 }
+

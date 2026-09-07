@@ -15,7 +15,8 @@ function logoAlt(src: string) {
   return file
     .replace(/\.[^.]+$/, "")
     .replace(/^\d+_/, "")
-    .replace(/_/g, " ");
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
 export function ClientesSection({ logos }: Props) {
@@ -35,14 +36,10 @@ export function ClientesSection({ logos }: Props) {
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.7, ease }}
           >
-            <p className={styles.eyebrow}>
-              NUESTROS CLIENTES
-              <span className={styles.eyebrowLine} aria-hidden />
-            </p>
             <h2 id="clientes-heading" className={styles.title}>
-              CLIENTES QUE CONFÍAN
+              Clientes que confían
               <br />
-              EN <span className={styles.titleAccent}>NUESTRO TRABAJO</span>
+              en <span className={styles.titleAccent}>nuestro trabajo</span>
             </h2>
           </motion.div>
 
@@ -55,8 +52,9 @@ export function ClientesSection({ logos }: Props) {
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.7, ease, delay: 0.12 }}
           >
-            Construyendo identidad, porque creemos en tus propósitos, por eso te
-            ayudamos a construirlos.
+            Organizaciones públicas y privadas que han confiado su
+            infraestructura a nuestro rigor técnico, cumplimiento y compromiso
+            de largo plazo.
           </motion.p>
         </header>
 
@@ -74,3 +72,4 @@ export function ClientesSection({ logos }: Props) {
     </section>
   );
 }
+

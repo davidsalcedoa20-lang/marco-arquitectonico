@@ -413,9 +413,9 @@ export function ConstructionBuilding({ progress }: Props) {
                   roughness={0.78}
                   metalness={0.08}
                   transparent
-                  opacity={0.35}
+                  opacity={0.62}
                   onUpdate={(m) => {
-                    m.userData.base = 0.35;
+                    m.userData.base = 0.62;
                   }}
                 />
               </mesh>
@@ -426,10 +426,10 @@ export function ConstructionBuilding({ progress }: Props) {
                   roughness={0.12}
                   metalness={0.4}
                   transparent
-                  opacity={0.32}
+                  opacity={0.48}
                   depthWrite={false}
                   onUpdate={(m) => {
-                    m.userData.base = 0.32;
+                    m.userData.base = 0.48;
                   }}
                 />
               </mesh>
@@ -479,9 +479,9 @@ export function ConstructionBuilding({ progress }: Props) {
                   color="#c9c5bd"
                   roughness={0.8}
                   transparent
-                  opacity={0.3}
+                  opacity={0.55}
                   onUpdate={(m) => {
-                    m.userData.base = 0.3;
+                    m.userData.base = 0.55;
                   }}
                 />
               </mesh>

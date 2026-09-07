@@ -29,18 +29,18 @@ export function ImpactoSection() {
         </FadeIn>
 
         <FadeIn delay={0.08} className="order-1 lg:order-2">
-          <p className="mb-5 font-mono text-[10px] tracking-[0.38em] text-ma-orange md:text-[11px]">
-            NUESTRO IMPACTO
+          <p className="mb-5 font-mono text-[16px] font-semibold tracking-[0.06em] text-ma-orange">
+            Nuestro impacto
           </p>
-          <h2 className="max-w-lg text-[clamp(1.85rem,3.4vw,2.85rem)] leading-[1.08] font-semibold tracking-[-0.035em] text-white">
+          <h2 className="max-w-lg text-[clamp(2rem,4.2vw,3.4rem)] leading-[1.08] font-semibold tracking-[-0.03em] text-ma-black">
             Creamos espacios que generan valor.
           </h2>
-          <p className="mt-7 max-w-md text-[15px] leading-[1.8] text-white/50 md:text-[16px]">
+          <p className="mt-7 max-w-md text-[16px] leading-[1.8] text-ma-black/65">
             El verdadero impacto de un proyecto no se mide en cifras vacías.
             Se siente en la cotidianidad: en cómo se habita, cómo se trabaja y
             cómo se permanece en un lugar diseñado con intención.
           </p>
-          <p className="mt-5 max-w-md text-[15px] leading-[1.8] text-white/50 md:text-[16px]">
+          <p className="mt-5 max-w-md text-[16px] leading-[1.8] text-ma-black/65">
             Buscamos calidad antes que cantidad. Cada decisión — material,
             proporción, luz o detalle — responde a una promesa: espacios que
             elevan la vida de quienes los usan.

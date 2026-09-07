@@ -6,7 +6,7 @@ import { FadeIn } from "./FadeIn";
 
 export function FilosofiaSection() {
   return (
-    <section className="relative min-h-[78vh] overflow-hidden md:min-h-[85vh]">
+    <section className="about-philosophy relative min-h-[78vh] overflow-hidden md:min-h-[85vh]">
       <Image
         src="/quienes_somos/filosofia.webp"
         alt=""
@@ -27,22 +27,22 @@ export function FilosofiaSection() {
 
       <div className="relative z-10 flex min-h-[78vh] items-center justify-center px-6 py-28 md:min-h-[85vh] md:px-10 md:py-36 lg:px-14">
         <FadeIn className="mx-auto max-w-3xl text-center">
-          <p className="mb-6 font-mono text-[10px] tracking-[0.38em] text-ma-orange md:text-[11px]">
-            NUESTRA FILOSOFÍA
+          <p className="mb-6 font-mono text-[16px] font-semibold tracking-[0.06em] text-ma-orange">
+            Nuestra filosofía
           </p>
-          <h2 className="text-[clamp(1.7rem,3.6vw,2.75rem)] leading-[1.15] font-semibold tracking-[-0.035em] text-white">
+          <h2 className="text-[clamp(2rem,4.2vw,3.4rem)] leading-[1.15] font-semibold tracking-[-0.03em] text-white">
             La arquitectura no termina cuando se entrega una obra. Comienza
             cuando las personas empiezan a vivirla.
           </h2>
-          <p className="mx-auto mt-8 max-w-xl text-[15px] leading-[1.8] text-white/50 md:text-[16px]">
+          <p className="mx-auto mt-8 max-w-xl text-[16px] leading-[1.8] text-white/50">
             Diseñamos para el día a día: para la luz de la mañana, el silencio
             de la tarde y la permanencia de lo bien hecho.
           </p>
           <Link
             href="/servicios"
-            className="group mt-12 inline-flex items-center gap-3 text-[11px] font-medium tracking-[0.24em] text-white/70 transition-colors duration-500 hover:text-ma-orange"
+            className="group mt-12 inline-flex items-center gap-3 text-[16px] font-semibold tracking-[0.04em] text-white/70 transition-colors duration-500 hover:text-ma-orange"
           >
-            CONOCE NUESTROS SERVICIOS
+            Conoce nuestros servicios
             <span className="transition-transform duration-500 group-hover:translate-x-1.5">
               →
             </span>
@@ -52,3 +52,4 @@ export function FilosofiaSection() {
     </section>
   );
 }
+

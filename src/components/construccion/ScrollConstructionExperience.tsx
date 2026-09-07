@@ -85,7 +85,7 @@ export function ScrollConstructionExperience({
     >
       <div className="relative flex flex-col md:flex-row md:items-start">
         <article
-          className="relative z-20 w-full bg-ma-black px-5 pt-24 pb-10 sm:px-6 md:bg-ma-black md:px-10 md:pt-28 md:pb-24 lg:px-14"
+          className="relative z-20 w-full bg-white px-5 pt-24 pb-10 sm:px-6 md:px-10 md:pt-28 md:pb-24 lg:px-14"
           style={
             isDesktop
               ? {
@@ -93,7 +93,7 @@ export function ScrollConstructionExperience({
                   maxWidth: `${leftPct}%`,
                   minWidth: 0,
                   flexShrink: 0,
-                  borderRight: "1px solid rgba(255,255,255,0.05)",
+                  borderRight: "1px solid rgba(58,42,30,0.08)",
                 }
               : { width: "100%", maxWidth: "100%" }
           }

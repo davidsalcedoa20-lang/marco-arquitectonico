@@ -33,10 +33,10 @@ export function MobileServiceVisual({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.7, ease }}
-      className={`relative w-full overflow-hidden rounded-[6px] bg-white/[0.03] shadow-[0_16px_40px_rgba(0,0,0,0.45)] ring-1 ring-white/[0.07] ${className}`}
+      className={`relative w-full overflow-hidden rounded-[20px] bg-white/[0.03] shadow-[0_16px_40px_rgba(0,0,0,0.45)] ring-1 ring-white/[0.07] ${className}`}
     >
       {label ? (
-        <p className="absolute top-4 left-4 z-[2] font-mono text-[10px] tracking-[0.32em] text-ma-orange">
+        <p className="absolute top-4 left-4 z-[2] rounded-full bg-black/35 px-3 py-1.5 font-mono text-[12px] font-semibold tracking-[0.24em] text-ma-orange backdrop-blur-sm">
           {label}
         </p>
       ) : null}
