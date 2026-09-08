@@ -21,9 +21,9 @@ export function HomeHub() {
     <section className="corporate-home" aria-labelledby="home-title">
       <div className="corporate-hero">
         <div className="corporate-intro">
-          <p className="section-label">Marco Arquitectónico</p>
-          <h1 id="home-title">Diseño, construcción y <span>mantenimiento.</span></h1>
-          <p>Construimos espacios que reflejan tu identidad. Un solo equipo acompaña tu proyecto, desde la primera idea hasta la entrega y el cuidado de la obra.</p>
+          <p className="section-label">Bienvenidos a Marco Arquitectónico</p>
+          <h1 id="home-title">Construimos <span>tu bienestar.</span></h1>
+          <p>Construcción, mantenimiento y servicios profesionales para mejorar tu calidad de vida. Un equipo de arquitectura e ingeniería civil acompaña tu hogar, tu empresa y tu propiedad horizontal.</p>
           <a href="#servicios-inicio" className="text-link">Explora nuestros servicios <span aria-hidden>↓</span></a>
         </div>
         <div className="corporate-carousel" role="region" aria-roledescription="carrusel" aria-label="Nuestros servicios en imágenes">

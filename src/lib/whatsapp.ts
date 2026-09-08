@@ -1,4 +1,4 @@
-export const WHATSAPP_PHONE = "573208079956";
+export const WHATSAPP_PHONE = "573187993331";
 
 export const WHATSAPP_DEFAULT_MESSAGE = `Hola, Marco Arquitectónico.
 

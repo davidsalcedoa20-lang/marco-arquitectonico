@@ -25,9 +25,10 @@ export function HeroSection() {
             <span className="text-ma-orange">confianza.</span>
           </h1>
           <p className="mt-8 max-w-[32rem] text-[16px] leading-[1.8] text-ma-black/70 md:mt-9">
-            Somos un estudio que une diseño, construcción y acompañamiento con
-            una misma exigencia: espacios que funcionan, se sienten y
-            perduran.
+            Somos un equipo de profesionales de la construcción, la arquitectura
+            y la ingeniería civil. Trabajamos para mejorar tu calidad de vida
+            mediante proyectos que responden a las necesidades de tu hogar,
+            tu industria y tus espacios corporativos.
           </p>
         </motion.div>
 

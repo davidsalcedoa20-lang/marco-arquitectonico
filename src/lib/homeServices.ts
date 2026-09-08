@@ -24,7 +24,7 @@ export const HOME_SERVICES: HomeService[] = [
     title: "Del plano a la",
     titleAccent: "realidad.",
     description:
-      "Ejecutamos cada etapa constructiva con precisión técnica: cimentación, estructura, cerramientos y entrega bajo control permanente.",
+      "Obras civiles y arquitectónicas para vivienda, hoteles, bodegas, locales comerciales y oficinas. Construimos espacios que responden a tu proyecto.",
     href: "/servicios/construccion",
     cta: "Ver más",
     tagline: "Planificar · Ejecutar · Entregar",
@@ -36,10 +36,10 @@ export const HOME_SERVICES: HomeService[] = [
     title: "Soluciones que construyen",
     titleAccent: "valor.",
     description:
-      "Preservamos el desempeño y la vida útil de cada activo. Diagnóstico, intervención y continuidad con el mismo rigor de obra nueva.",
+      "Cuidado de cubiertas y fachadas para propiedad horizontal. Protegemos los espacios de la intemperie y el deterioro para conservar tu patrimonio.",
     href: "/servicios/mantenimiento",
     cta: "Ver más",
-    tagline: "Diseñamos · Construimos · Cuidamos",
+    tagline: "Cubiertas · Fachadas · Propiedad horizontal",
   },
   {
     id: "servicios-profesionales",
@@ -48,10 +48,10 @@ export const HOME_SERVICES: HomeService[] = [
     title: "Ideas que se vuelven",
     titleAccent: "proyecto.",
     description:
-      "Desde la conversación inicial hasta la documentación ejecutiva: diseño, visualización 3D y coordinación interdisciplinaria.",
+      "Consultoría, interventoría y dirección de proyectos. Integramos diseño, planificación y control técnico para llevar tu proyecto a la obra.",
     href: "/servicios/servicios-profesionales",
     cta: "Ver más",
-    tagline: "Escuchar · Diseñar · Coordinar",
+    tagline: "Consultoría · Interventoría · Dirección",
   },
 ];
 

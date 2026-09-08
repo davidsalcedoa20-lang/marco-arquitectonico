@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./client-review.css";
+import "./client-landing.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
@@ -36,9 +37,9 @@ export const metadata: Metadata = {
       "Diseñamos, construimos e intervenimos proyectos con altos estándares de calidad, precisión y compromiso.",
     images: [
       {
-        url: "/logo.png",
-        width: 512,
-        height: 512,
+        url: "/brand/marco-arquitectonico-completo.jpeg",
+        width: 712,
+        height: 193,
         alt: "Marco Arquitectónico",
       },
     ],
@@ -48,15 +49,15 @@ export const metadata: Metadata = {
     title: "Marco Arquitectónico | Del plano a la realidad",
     description:
       "Diseñamos, construimos e intervenimos proyectos con altos estándares de calidad, precisión y compromiso.",
-    images: ["/logo.png"],
+    images: ["/brand/marco-arquitectonico-completo.jpeg"],
   },
   robots: {
     index: true,
     follow: true,
   },
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/brand/marco-arquitectonico-simbolo.jpeg",
+    apple: "/brand/marco-arquitectonico-simbolo.jpeg",
   },
 };
 
