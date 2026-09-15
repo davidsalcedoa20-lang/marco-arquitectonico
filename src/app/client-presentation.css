@@ -116,3 +116,13 @@ html { scroll-padding-top: var(--header-height); }
 .client-contact-cta a:focus-visible { outline: 3px solid #ad4d0c; outline-offset: 4px; }
 @media (max-width: 1024px) { .client-contact-cta { margin-left: 28px; } }
 @media (max-width: 767px) { .client-contact-cta { margin: 28px 0 0; padding: 28px 22px; } }
+
+/* Rounded corners across all site imagery, including carousel overlays. */
+:root { --image-radius: 24px; }
+img { border-radius: var(--image-radius); }
+.client-carousel,
+.client-slide,
+.client-service-preview,
+.client-detail-gallery > div,
+.client-detail-photo { border-radius: var(--image-radius); overflow: hidden; }
+@media (max-width: 700px) { :root { --image-radius: 18px; } }
