@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { clientLinks } from "@/lib/clientLinks";
 import { type CSSProperties, useEffect, useState } from "react";
 
 // Use landscape originals, at least 2528px wide, rather than the PPT thumbnails.
@@ -97,16 +98,11 @@ export function ClientLanding({ logos }: { logos: string[] }) {
 }
 
 function ClientLogos({ logos }: { logos: string[] }) {
-  const [strip, setStrip] = useState<HTMLDivElement | null>(null);
-  const move = (direction: number) => {
-    if (!strip) return;
-    strip.scrollBy({ left: direction * strip.clientWidth, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
-  };
-  return <>
-    <div ref={setStrip} className="client-logo-strip" tabIndex={0} aria-label="Clientes; desplázate horizontalmente para ver todos los logos">{logos.map(src => {
-      const name = src.split("/").pop()!.replace(/^\d+_/, "").replace(/\.[^.]+$/, "").replace(/_/g, " ");
-      return <figure key={src}><Image src={src} alt={name} width={200} height={100} /><figcaption>{name}</figcaption></figure>;
-    })}</div>
-    <div className="client-logo-controls"><button onClick={() => move(-1)} aria-label="Clientes anteriores">←</button><button onClick={() => move(1)} aria-label="Clientes siguientes">→</button></div>
-  </>;
+  return <div className="client-logo-grid" aria-label="Nuestros clientes">{logos.map(src => {
+    const filename = src.split("/").pop()!;
+    const client = clientLinks[filename];
+    const name = client?.name ?? filename.replace(/^\d+_/, "").replace(/\.[^.]+$/, "").replace(/_/g, " ");
+    const content = <figure><Image src={src} alt={name} width={200} height={100} /><figcaption>{name}{client && <span className="client-logo-destination">{client.map ? "Ver ubicación" : "Visitar sitio web"} <span aria-hidden="true">↗</span></span>}</figcaption></figure>;
+    return client ? <a key={src} href={client.url} target="_blank" rel="noopener noreferrer" aria-label={`${name}: ${client.map ? "ver ubicación" : "visitar sitio web"} (abre en una nueva pestaña)`}>{content}</a> : <div key={src}>{content}</div>;
+  })}</div>;
 }
