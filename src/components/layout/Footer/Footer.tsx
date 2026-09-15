@@ -1,4 +1,4 @@
-import { ContactForm } from "./ContactForm";
+import { ContactCallToAction } from "./ContactCallToAction";
 
 const mapUrl = "https://www.google.com/maps/search/?api=1&query=Carrera+18+78-74+Bogota";
 
@@ -16,7 +16,7 @@ export function Footer() {
             <dt>Formas de pago</dt><dd>Efectivo, tarjeta de crédito y débito, transferencia, financiación, consignación.</dd>
           </dl>
         </address>
-        <ContactForm />
+        <ContactCallToAction />
       </div>
     </div>
     <p className="client-final-promise">Protege y <span>garantiza</span> tu <span>patrimonio.</span></p>
