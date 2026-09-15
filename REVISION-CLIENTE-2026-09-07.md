@@ -35,6 +35,13 @@ La portada usa las fotografías extraídas del PowerPoint, sin atribuirlas como 
 
 ## Verificación
 
+### Ajuste posterior de calidad fotográfica
+
+- Se reemplazaron las fotografías pequeñas del PowerPoint (varias de aproximadamente 420 px de ancho) por los originales horizontales existentes en `public/assets/servicios`, de 2528–2752 px de ancho.
+- Selección según actividad: fachadas, cubiertas e inspección; estructuras y ejecución de obra; consultoría, diseño y coordinación técnica. Los rótulos se ajustaron a lo que muestra cada imagen.
+- Se mantienen el orden y los textos descriptivos del cliente. Los carruseles usan encuadres específicos para escritorio y celular, proporciones conservadas y calidad 90 en la optimización de imágenes.
+- Se amplía la resolución de entrega hasta 2528 px y se solicita suficiente resolución para los recortes verticales en celulares de alta densidad.
+
 - Compilación de producción, TypeScript y lint completados sin errores.
 - Navegador real en 1440, 390 y 320 píxeles: orden de secciones, cuatro carruseles, avance/retroceso, 18 clientes, menú móvil y ausencia de desbordamiento horizontal.
 - Revisión visual de escritorio y celular. Vista previa local en http://localhost:3101.

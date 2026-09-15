@@ -2,3 +2,10 @@
 @media(max-width:900px){.client-welcome{padding-top:88px}.welcome-carousel{height:calc(85svh - 88px);min-height:470px}.client-carousel{height:500px}.client-service-links{gap:16px}.client-service-links h3{font-size:18px}.client-service-copy{gap:35px}.client-service-section{scroll-margin-top:88px}}
 @media(max-width:600px){.client-slide-copy{left:24px;right:24px;bottom:100px}.client-carousel-controls{left:24px}.client-intro{padding-block:60px}.client-service-links{grid-template-columns:1fr;margin-top:32px;gap:0}.client-service-links a{padding:22px 0}.client-service-heading{padding-block:42px 28px}.client-service-heading>p{font-size:17px}.client-service-copy{grid-template-columns:1fr;padding-block:36px 50px;gap:24px}.client-service-copy p{font-size:17px}.client-logo-strip{grid-auto-columns:calc((100% - 20px)/2);gap:20px}.client-logo-strip img{height:85px}.client-trust{padding-block:50px}.client-contact{flex-direction:column;font-size:16px}.client-final-promise{padding-block:55px 20px}.header-actions .whatsapp-button{padding:10px;min-width:44px}.client-carousel{height:470px}}
 @media(prefers-reduced-motion:reduce){.client-slide-track,.client-logo-strip img{transition:none}}
+
+/* Preserve the source aspect ratio and keep people in frame at both sizes. */
+.client-carousel { width: 100%; max-width: 2528px; margin-inline: auto; }
+.client-slide img { object-fit: cover; object-position: var(--photo-position, center); }
+@media(max-width:600px) {
+  .client-slide img { object-position: var(--photo-position-mobile, center); }
+}

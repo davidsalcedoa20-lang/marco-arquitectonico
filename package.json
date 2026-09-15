@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint src",
     "generate:frames": "node scripts/generate-frames.mjs",
     "optimize:images": "node scripts/optimize-images.mjs",
     "optimize:videos": "node scripts/optimize-videos.mjs"

@@ -6,11 +6,6 @@ const siteUrl =
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
-    "/quienes-somos",
-    "/servicios",
-    "/servicios/mantenimiento",
-    "/servicios/construccion",
-    "/servicios/servicios-profesionales",
   ];
 
   return routes.map((path) => ({

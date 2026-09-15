@@ -9,7 +9,7 @@ export function BrandLogo({ priority = false }: { priority?: boolean }) {
       alt="Marco Arquitectónico S.A.S."
       width={712}
       height={193}
-      sizes="(max-width: 359px) 150px, (max-width: 700px) 190px, 320px"
+      sizes="(max-width: 359px) 150px, (max-width: 700px) 190px, 360px"
       priority={priority}
     />
   );

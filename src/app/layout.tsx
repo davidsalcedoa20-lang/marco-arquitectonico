@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./client-review.css";
-import "./client-landing.css";
+import "./client-presentation.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
@@ -14,11 +14,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Marco Arquitectónico | Del plano a la realidad",
+    default: "Marco Arquitectónico | Construcción, mantenimiento y servicios profesionales",
     template: "%s | Marco Arquitectónico",
   },
   description:
-    "Diseñamos, construimos e intervenimos proyectos con altos estándares de calidad, precisión y compromiso.",
+    "Nuestra compañía está enfocada en mejorar tu calidad de vida. Construcción, mantenimiento y servicios profesionales.",
   keywords: [
     "arquitectura",
     "construcción",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     locale: "es_CO",
     url: siteUrl,
     siteName: "Marco Arquitectónico",
-    title: "Marco Arquitectónico | Del plano a la realidad",
+    title: "Marco Arquitectónico | Construcción, mantenimiento y servicios profesionales",
     description:
-      "Diseñamos, construimos e intervenimos proyectos con altos estándares de calidad, precisión y compromiso.",
+      "Nuestra compañía está enfocada en mejorar tu calidad de vida. Construcción, mantenimiento y servicios profesionales.",
     images: [
       {
         url: "/brand/marco-arquitectonico-completo.jpeg",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Marco Arquitectónico | Del plano a la realidad",
+    title: "Marco Arquitectónico | Construcción, mantenimiento y servicios profesionales",
     description:
-      "Diseñamos, construimos e intervenimos proyectos con altos estándares de calidad, precisión y compromiso.",
+      "Nuestra compañía está enfocada en mejorar tu calidad de vida. Construcción, mantenimiento y servicios profesionales.",
     images: ["/brand/marco-arquitectonico-completo.jpeg"],
   },
   robots: {
