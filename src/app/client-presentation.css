@@ -150,15 +150,20 @@ button,
 .client-lightbox { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: clamp(20px, 4vw, 56px); background: rgb(8 13 16 / 92%); backdrop-filter: blur(8px); }
 .client-lightbox-image { position: relative; width: min(94vw, 1500px); height: min(86vh, 980px); border-radius: var(--image-radius); overflow: hidden; }
 .client-lightbox-image img { object-fit: contain; background: #101416; }
+.client-lightbox-logo { width: min(82vw, 900px); height: min(72vh, 620px); background: #f2ede7; }
+.client-lightbox-logo img { object-fit: contain; background: transparent; padding: clamp(28px, 6vw, 80px); }
 .client-lightbox-close { position: fixed; z-index: 1; top: 22px; right: 22px; width: 52px; height: 52px; border: 1px solid #ffffff80; background: #171717cc; color: white; font-size: 34px; line-height: 1; }
 .client-lightbox-close:hover { background: #ad4d0c; }
 
-.client-logo-marquee { width: 100%; overflow: hidden; padding-block: 24px 10px; mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent); }
-.client-logo-track { display: flex; width: max-content; gap: 18px; animation: client-logo-scroll 42s linear infinite; }
+.client-logo-marquee { width: 100%; overflow: hidden; padding-block: 46px 34px; mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent); }
+.client-logo-track { display: flex; align-items: center; width: max-content; gap: 28px; animation: client-logo-scroll 48s linear infinite; }
 .client-logo-marquee:hover .client-logo-track { animation-play-state: paused; }
-.client-logo-track figure { flex: 0 0 190px; margin: 0; padding: 18px 12px; border: 1px solid #e4e4e4; border-radius: 24px; background: white; }
-.client-logo-track img { width: 100%; height: 90px; object-fit: contain; mix-blend-mode: multiply; }
-.client-logo-track figcaption { margin-top: 12px; font-size: 13px; line-height: 1.35; text-transform: capitalize; }
-@keyframes client-logo-scroll { to { transform: translateX(calc(-50% - 9px)); } }
-@media (max-width: 700px) { .client-logo-track { gap: 12px; animation-duration: 34s; } .client-logo-track figure { flex-basis: 150px; padding: 14px 10px; } .client-logo-track img { height: 72px; } @keyframes client-logo-scroll { to { transform: translateX(calc(-50% - 6px)); } } }
+.client-logo-track figure { position: relative; z-index: 1; flex: 0 0 238px; margin: 0; text-align: center; transition: transform .26s ease; transform-origin: center; }
+.client-logo-track figure:hover, .client-logo-track figure:focus-within { z-index: 3; transform: scale(1.16); }
+.client-logo-button { display: block; width: 100%; height: 132px; padding: 0; border: 0; border-radius: 18px; background: transparent; cursor: zoom-in; }
+.client-logo-button img { width: 100%; height: 100%; object-fit: contain; }
+.client-logo-button:focus-visible { outline: 3px solid var(--landing-orange); outline-offset: 5px; }
+.client-logo-track figcaption { margin-top: 12px; font-size: 14px; font-weight: 600; line-height: 1.35; text-transform: capitalize; }
+@keyframes client-logo-scroll { to { transform: translateX(calc(-50% - 14px)); } }
+@media (max-width: 700px) { .client-logo-marquee { padding-block: 34px 24px; } .client-logo-track { gap: 18px; animation-duration: 38s; } .client-logo-track figure { flex-basis: 178px; } .client-logo-button { height: 104px; } .client-logo-track figure:hover, .client-logo-track figure:focus-within { transform: scale(1.1); } @keyframes client-logo-scroll { to { transform: translateX(calc(-50% - 9px)); } } }
 @media (prefers-reduced-motion: reduce) { .client-logo-marquee { overflow-x: auto; mask-image: none; } .client-logo-track { animation: none; } }

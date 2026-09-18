@@ -5,7 +5,7 @@ import { type CSSProperties, useEffect, useState } from "react";
 
 // Curated and optimized client photography, including the requested safety edits.
 const photography: Record<string, { src: string; position: string; mobile: string }> = {
-  "image5.jpeg": { src: "cliente/mantenimiento-fachada-casco.webp", position: "50% 43%", mobile: "63% 40%" },
+  "image5.jpeg": { src: "cliente/mantenimiento-fachada-casco-reflejo.webp", position: "50% 43%", mobile: "63% 40%" },
   "image6.jpeg": { src: "cliente/mantenimiento-cubierta-casco.webp", position: "50% 48%", mobile: "67% 42%" },
   "image7.jpg": { src: "cliente/mantenimiento-impermeabilizacion-fachada.webp", position: "50% 42%", mobile: "58% 40%" },
   "image8.jpeg": { src: "cliente/mantenimiento-cubierta-aeropuerto.webp", position: "50% 42%", mobile: "55% 40%" },
@@ -121,7 +121,7 @@ const services = [
 ];
 
 export function ClientLanding({ logos }: { logos: string[] }) {
-  const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
+  const [preview, setPreview] = useState<{ src: string; alt: string; kind?: "photo" | "logo" } | null>(null);
   useEffect(() => {
     if (!preview) return;
     const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") setPreview(null); };
@@ -166,16 +166,16 @@ export function ClientLanding({ logos }: { logos: string[] }) {
     <section id="clientes" className="client-trust"><div className="page-container">
       <h2>Clientes que confían en nuestro trabajo</h2>
       <p>Construyendo identidad, porque creemos en tus propósitos y te ayudamos a construirlos. Buscamos ser tu aliado, porque tú formas parte de nuestro legado.</p>
-      <ClientLogos logos={logos} />
+      <ClientLogos logos={logos} onOpen={(src, alt) => setPreview({ src, alt, kind: "logo" })} />
     </div></section>
     {preview && <div className="client-lightbox" role="dialog" aria-modal="true" aria-label={`Vista ampliada: ${preview.alt}`} onClick={() => setPreview(null)}>
       <button className="client-lightbox-close" type="button" onClick={() => setPreview(null)} aria-label="Cerrar imagen ampliada" autoFocus>×</button>
-      <div className="client-lightbox-image" onClick={event => event.stopPropagation()}><Image src={preview.src} alt={preview.alt} fill quality={95} sizes="95vw" /></div>
+      <div className={`client-lightbox-image ${preview.kind === "logo" ? "client-lightbox-logo" : ""}`} onClick={event => event.stopPropagation()}><Image src={preview.src} alt={preview.alt} fill quality={95} sizes={preview.kind === "logo" ? "80vw" : "95vw"} /></div>
     </div>}
   </>;
 }
 
-function ClientLogos({ logos }: { logos: string[] }) {
+function ClientLogos({ logos, onOpen }: { logos: string[]; onOpen: (src: string, alt: string) => void }) {
   const nameFor = (src: string) => {
     const filename = src.split("/").pop()!;
     return clientNames[filename] ?? filename.replace(/^\d+_/, "").replace(/\.[^.]+$/, "").replace(/_/g, " ");
@@ -185,7 +185,12 @@ function ClientLogos({ logos }: { logos: string[] }) {
     <div className="client-logo-track">{repeated.map((src, index) => {
       const name = nameFor(src);
       const duplicate = index >= logos.length;
-      return <figure key={`${src}-${duplicate ? "copy" : "original"}`} aria-hidden={duplicate || undefined}><Image src={src} alt={duplicate ? "" : name} width={200} height={100} /><figcaption>{name}</figcaption></figure>;
+      return <figure key={`${src}-${duplicate ? "copy" : "original"}`} aria-hidden={duplicate || undefined}>
+        <button className="client-logo-button" type="button" tabIndex={duplicate ? -1 : undefined} onClick={() => onOpen(src, name)} aria-label={duplicate ? undefined : `Ampliar logo de ${name}`}>
+          <Image src={src} alt={duplicate ? "" : name} width={320} height={190} />
+        </button>
+        <figcaption>{name}</figcaption>
+      </figure>;
     })}</div>
   </div>;
 }
