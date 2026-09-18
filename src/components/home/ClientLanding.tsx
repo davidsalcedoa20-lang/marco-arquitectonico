@@ -17,6 +17,18 @@ const photography: Record<string, { src: string; position: string; mobile: strin
   "image14.jpeg": { src: "cliente/profesional-diseno-casa.webp", position: "50% 48%", mobile: "52% 42%" },
   "image15.jpeg": { src: "cliente/profesional-diseno-interior.webp", position: "50% 45%", mobile: "50% 43%" },
   "image16.jpeg": { src: "cliente/profesional-edificio.webp", position: "50% 48%", mobile: "50% 43%" },
+  "image18.jpg": { src: "cliente/mantenimiento-sendero-peatonal.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image19.jpg": { src: "cliente/mantenimiento-terrazas-cubiertas.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image20.jpg": { src: "cliente/mantenimiento-fachada-altura.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image21.jpg": { src: "cliente/mantenimiento-cubierta-fibrocemento.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image22.jpg": { src: "cliente/construccion-pergola-madera.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image23.jpg": { src: "cliente/construccion-estructura-mezanine.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image24.jpg": { src: "cliente/construccion-oficina-minimalista.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image25.jpg": { src: "cliente/construccion-fachada-alucobond.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image26.jpg": { src: "cliente/profesional-casa-campestre.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image27.jpg": { src: "cliente/profesional-diseno-volumetrico.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image28.jpg": { src: "cliente/profesional-diseno-mobiliario.webp", position: "50% 48%", mobile: "50% 45%" },
+  "image29.jpg": { src: "cliente/profesional-gerencia-obra.webp", position: "50% 48%", mobile: "50% 45%" },
 };
 const media = (name: string) => `/assets/servicios/${photography[name].src}`;
 const clientNames: Record<string, string> = {
@@ -69,10 +81,43 @@ function Carousel({ slides, welcome = false, label, subtitle }: { slides: Slide[
   </section>;
 }
 
+function ThumbnailTrain({ images, captions, label, onOpen }: { images: string[]; captions: string[]; label: string; onOpen: (image: string, caption: string) => void }) {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [reduced, setReduced] = useState(true);
+  useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReduced(query.matches);
+    update(); query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+  useEffect(() => {
+    if (paused || hover || reduced || images.length <= 3) return;
+    const timer = window.setInterval(() => setActive(index => (index + 1) % images.length), 3600);
+    return () => window.clearInterval(timer);
+  }, [hover, images.length, paused, reduced]);
+
+  const visible = Array.from({ length: Math.min(3, images.length) }, (_, offset) => {
+    const index = (active + offset) % images.length;
+    return { image: images[index], caption: captions[index], index };
+  });
+
+  return <div className="client-gallery-train" aria-label={`Galería de ${label}`} aria-roledescription="carrusel" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onFocusCapture={() => setHover(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setHover(false); }}>
+    <div className="client-detail-gallery" key={active}>{visible.map(({ image, caption, index }) => <button className="client-image-button" type="button" key={`${image}-${index}`} onClick={() => onOpen(image, caption)} aria-label={`Ampliar imagen: ${caption}`}><Image src={image} alt={caption} fill sizes="(max-width: 700px) 30vw, 17vw" /></button>)}</div>
+    {images.length > 3 && <div className="client-gallery-controls">
+      <button type="button" aria-label={`Imágenes anteriores de ${label}`} onClick={() => setActive(index => (index - 1 + images.length) % images.length)}>←</button>
+      <span aria-live={paused || hover || reduced ? "polite" : "off"}>{active + 1} / {images.length}</span>
+      <button type="button" aria-label={`Imágenes siguientes de ${label}`} onClick={() => setActive(index => (index + 1) % images.length)}>→</button>
+      <button type="button" aria-label={paused ? `Reanudar galería de ${label}` : `Pausar galería de ${label}`} aria-pressed={paused} onClick={() => setPaused(value => !value)}>{paused ? "▶" : "Ⅱ"}</button>
+    </div>}
+  </div>;
+}
+
 const services = [
-  { id: "mantenimiento", title: "Mantenimiento de cubiertas y fachadas", subtitle: "Propiedad horizontal", images: ["image5.jpeg", "image6.jpeg", "image7.jpg", "image8.jpeg"], captions: ["Fachadas", "Cubiertas", "Mantenimiento preventivo", "Inspección de estructuras"], promise: "Protege y garantiza tu patrimonio.", paragraphs: ["Mantenimientos enfocados en mejorar el bienestar y seguridad para tu propiedad horizontal.", "Protección para fachadas, cubiertas y estructuras expuestas a la intemperie, de ladrillo, bloques de cemento, piedras naturales o artificiales, terrazas, parqueaderos, plazoletas y demás, para reducir y eliminar las eflorescencias y el deterioro de su acabado tanto interior como exterior.", "Para garantizar el bienestar, construyendo e impermeabilizando la seguridad para resguardar tu hogar, zonas comunes, zonas de trabajo y oficinas, que harán de tu unidad un gran lugar para vivir."] },
-  { id: "construccion", title: "Construcción de obras civiles y arquitectónicas", subtitle: "Vivienda campestre, hoteles, bodegas industriales, remodelación de locales comerciales y oficina abierta.", images: ["image13.jpg", "image10.jpeg", "image11.jpeg", "image12.jpeg"], captions: ["Bodegas industriales", "Vivienda campestre", "Cubiertas y estructuras", "Proyectos comerciales"], promise: "Construyendo tu bienestar y experiencias para contar.", paragraphs: ["Construcción de proyectos de infraestructura civil y arquitectónica. Construyendo identidad.", "Para mejorar la producción y el almacenamiento de las compañías, para garantizar un bienestar humano con una óptima integración entre la espacialidad, el colaborador y las máquinas, mejorando la tranquilidad y nuestra libertad, para una vida sin igual, que marca un precedente en tu hogar.", "Garantizamos la estabilidad de tu legado, construyendo espacios equilibrados, gracias a la unión de la arquitectura y la ingeniería civil, que harán de tu proyecto un gran lugar para vivir."] },
-  { id: "servicios-profesionales", title: "Servicios profesionales", subtitle: "Consultoría, interventoría y dirección de proyectos de infraestructura civil y arquitectónica.", images: ["image17.jpg", "image14.jpeg", "image15.jpeg", "image16.jpeg"], captions: ["Consultoría e interventoría", "Diseño arquitectónico", "Dirección de proyectos", "Ingeniería civil"], promise: "Arquitectura e ingeniería civil.", paragraphs: ["Conformada por un equipo de trabajo profesional de la construcción, arquitectura e ingeniería civil.", "Consolidar proyectos de infraestructura que serán desarrollados de acuerdo con la planificación y acorde con su presupuesto, de la mano de la arquitectura y de ingeniería civil y ambiental.", "El diseño debe satisfacer las necesidades de espacios habitables para tu proyecto, tanto en lo estético como en lo tecnológico, para tu hogar, industria y ambientes corporativos.", "Para coordinar y controlar que el proceso constructivo se edifique en concordancia con los diseños y especificaciones técnicas determinadas."] },
+  { id: "mantenimiento", title: "Mantenimiento de cubiertas y fachadas", subtitle: "Propiedad horizontal", images: ["image5.jpeg", "image6.jpeg", "image7.jpg", "image8.jpeg"], captions: ["Fachadas", "Cubiertas", "Mantenimiento preventivo", "Inspección de estructuras"], galleryImages: ["image6.jpeg", "image7.jpg", "image8.jpeg", "image18.jpg", "image19.jpg", "image20.jpg", "image21.jpg"], galleryCaptions: ["Mantenimiento de cubiertas", "Impermeabilización de fachadas", "Mantenimiento en cubiertas", "Senderos peatonales", "Impermeabilización de terrazas", "Mantenimiento de fachadas en altura", "Cubiertas de fibrocemento"], promise: "Protege y garantiza tu patrimonio.", paragraphs: ["Mantenimientos enfocados en mejorar el bienestar y seguridad para tu propiedad horizontal.", "Protección para fachadas, cubiertas y estructuras expuestas a la intemperie, de ladrillo, bloques de cemento, piedras naturales o artificiales, terrazas, parqueaderos, plazoletas y demás, para reducir y eliminar las eflorescencias y el deterioro de su acabado tanto interior como exterior.", "Para garantizar el bienestar, construyendo e impermeabilizando la seguridad para resguardar tu hogar, zonas comunes, zonas de trabajo y oficinas, que harán de tu unidad un gran lugar para vivir."] },
+  { id: "construccion", title: "Construcción de obras civiles y arquitectónicas", subtitle: "Vivienda campestre, hoteles, bodegas industriales, remodelación de locales comerciales y oficina abierta.", images: ["image13.jpg", "image10.jpeg", "image11.jpeg", "image12.jpeg"], captions: ["Bodegas industriales", "Vivienda campestre", "Cubiertas y estructuras", "Proyectos comerciales"], galleryImages: ["image10.jpeg", "image11.jpeg", "image12.jpeg", "image22.jpg", "image23.jpg", "image24.jpg", "image25.jpg"], galleryCaptions: ["Vivienda campestre", "Cubiertas y estructuras", "Proyectos comerciales", "Pérgolas en madera", "Estructuras metálicas y mezanines", "Remodelación de oficinas", "Fachadas en Alucobond"], promise: "Construyendo tu bienestar y experiencias para contar.", paragraphs: ["Construcción de proyectos de infraestructura civil y arquitectónica. Construyendo identidad.", "Para mejorar la producción y el almacenamiento de las compañías, para garantizar un bienestar humano con una óptima integración entre la espacialidad, el colaborador y las máquinas, mejorando la tranquilidad y nuestra libertad, para una vida sin igual, que marca un precedente en tu hogar.", "Garantizamos la estabilidad de tu legado, construyendo espacios equilibrados, gracias a la unión de la arquitectura y la ingeniería civil, que harán de tu proyecto un gran lugar para vivir."] },
+  { id: "servicios-profesionales", title: "Servicios profesionales", subtitle: "Consultoría, interventoría y dirección de proyectos de infraestructura civil y arquitectónica.", images: ["image17.jpg", "image14.jpeg", "image15.jpeg", "image16.jpeg"], captions: ["Consultoría e interventoría", "Diseño arquitectónico", "Dirección de proyectos", "Ingeniería civil"], galleryImages: ["image14.jpeg", "image15.jpeg", "image16.jpeg", "image26.jpg", "image27.jpg", "image28.jpg", "image29.jpg"], galleryCaptions: ["Diseño arquitectónico", "Diseño de interiores", "Diseño multifamiliar", "Casas campestres", "Diseño volumétrico", "Diseño de mobiliario", "Gerencia de obra"], promise: "Arquitectura e ingeniería civil.", paragraphs: ["Conformada por un equipo de trabajo profesional de la construcción, arquitectura e ingeniería civil.", "Consolidar proyectos de infraestructura que serán desarrollados de acuerdo con la planificación y acorde con su presupuesto, de la mano de la arquitectura y de ingeniería civil y ambiental.", "El diseño debe satisfacer las necesidades de espacios habitables para tu proyecto, tanto en lo estético como en lo tecnológico, para tu hogar, industria y ambientes corporativos.", "Para coordinar y controlar que el proceso constructivo se edifique en concordancia con los diseños y especificaciones técnicas determinadas."] },
 ];
 
 export function ClientLanding({ logos }: { logos: string[] }) {
@@ -113,7 +158,7 @@ export function ClientLanding({ logos }: { logos: string[] }) {
             {(service.id === "servicios-profesionales" ? [service.paragraphs[2], service.paragraphs[1], service.paragraphs[3]] : [service.paragraphs[2], service.paragraphs[1]]).map(p => <p key={p}>{p}</p>)}
             {service.id !== "servicios-profesionales" && <p className="client-service-promise">{service.promise}</p>}
           </div>
-          <div className="client-detail-gallery">{service.images.slice(1).map((name, i) => <button className="client-image-button" type="button" key={name} onClick={() => setPreview({ src: media(name), alt: service.captions[i + 1] })} aria-label={`Ampliar imagen: ${service.captions[i + 1]}`}><Image src={media(name)} alt={service.captions[i + 1]} fill sizes="(max-width: 700px) 33vw, 17vw" /></button>)}</div>
+          <ThumbnailTrain images={service.galleryImages.map(media)} captions={service.galleryCaptions} label={service.title} onOpen={(src, alt) => setPreview({ src, alt })} />
         </div>
         <button className="client-detail-photo client-image-button" type="button" onClick={() => setPreview({ src: media(service.images[0]), alt: service.captions[0] })} aria-label={`Ampliar imagen: ${service.captions[0]}`}><Image src={media(service.images[0])} alt={service.captions[0]} fill quality={90} sizes="(max-width: 700px) 100vw, 54vw" /></button>
       </div>

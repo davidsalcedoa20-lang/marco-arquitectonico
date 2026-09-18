@@ -38,9 +38,15 @@ html { scroll-padding-top: var(--header-height); }
 .client-service-copy h3 { font-size: clamp(21px, 1.85vw, 27px); font-weight: 400; line-height: 1.4; margin: 0 0 28px; }
 .client-service-paragraphs p { font-size: clamp(16px, 1.2vw, 18px); line-height: 1.7; margin-bottom: 20px; text-align: justify; text-wrap: pretty; }
 .client-service-paragraphs .client-service-promise { color: #ad4d0c; text-align: center; font-weight: 600; margin-block: 22px; }
-.client-detail-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; margin-top: auto; padding-top: 12px; }
+.client-gallery-train { margin-top: auto; padding-top: 12px; overflow: hidden; }
+.client-detail-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; animation: client-gallery-arrive .55s cubic-bezier(.22,.61,.36,1); }
 .client-detail-gallery > div, .client-detail-gallery > button { aspect-ratio: 1.2; position: relative; overflow: hidden; }
 .client-detail-gallery img, .client-detail-photo img { object-fit: cover; }
+.client-gallery-controls { display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 38px; padding-top: 10px; }
+.client-gallery-controls button { width: 34px; height: 34px; border: 1px solid #c8c8c8; background: white; color: #303030; }
+.client-gallery-controls button:hover { border-color: var(--landing-orange); color: #98400b; }
+.client-gallery-controls span { min-width: 42px; text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; }
+@keyframes client-gallery-arrive { from { opacity: .35; transform: translateX(9%); } to { opacity: 1; transform: translateX(0); } }
 .client-detail-photo { position: relative; min-height: 650px; }
 .client-trust { padding-block: 64px 34px; text-align: center; background: #f5f5f5; color: #303030; }
 .client-trust h2 { font-size: clamp(28px, 3vw, 42px); font-weight: 600; line-height: 1.25; }
@@ -96,7 +102,7 @@ html { scroll-padding-top: var(--header-height); }
   .client-service-copy { padding: 30px 20px 20px; }
   .client-service-copy h3 { margin-bottom: 22px; }
   .client-detail-photo { min-height: 0; aspect-ratio: 1.1; }
-  .client-detail-gallery { padding-top: 4px; }
+  .client-gallery-train { padding-top: 4px; }
   .client-trust { padding-top: 42px; }
   .client-logo-strip { grid-auto-columns: calc((100% - 20px)/2); gap: 20px; }
   .client-logo-strip img { height: 85px; }
@@ -106,7 +112,7 @@ html { scroll-padding-top: var(--header-height); }
   .footer-credits { padding: 22px 20px; }
   .header-actions .whatsapp-button { padding: 10px; min-width: 44px; }
 }
-@media(prefers-reduced-motion:reduce) { .client-slide-track, .client-logo-strip img, .client-service-preview img { transition: none; } }
+@media(prefers-reduced-motion:reduce) { .client-slide-track, .client-logo-strip img, .client-service-preview img { transition: none; } .client-detail-gallery { animation: none; } }
 .client-contact-cta { margin-left: 48px; padding: clamp(28px, 4vw, 56px); background: #faf3ed; border-top: 4px solid #ad4d0c; align-self: center; }
 .contact-cta-eyebrow { color: #ad4d0c; font-size: 14px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .client-contact-cta h3 { margin: 18px 0; font-size: clamp(28px, 3vw, 42px); line-height: 1.2; }
