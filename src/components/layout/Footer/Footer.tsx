@@ -13,7 +13,6 @@ export function Footer() {
             <dt>Dirección</dt><dd><a href={mapUrl} target="_blank" rel="noopener noreferrer">Carrera 18 # 78-74, Bogotá</a></dd>
             <dt>Email</dt><dd><a href="mailto:mercadeo.arquitectonico@gmail.com">mercadeo.arquitectonico@gmail.com</a></dd>
             <dt>Celular</dt><dd><a href="tel:+573187993331">+57 318 799 3331</a></dd>
-            <dt>Formas de pago</dt><dd>Efectivo, tarjeta de crédito y débito, transferencia, financiación, consignación.</dd>
           </dl>
         </address>
         <ContactCallToAction />
