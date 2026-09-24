@@ -150,8 +150,8 @@ button,
 .client-lightbox { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: clamp(20px, 4vw, 56px); background: rgb(8 13 16 / 92%); backdrop-filter: blur(8px); }
 .client-lightbox-image { position: relative; width: min(94vw, 1500px); height: min(86vh, 980px); border-radius: var(--image-radius); overflow: hidden; }
 .client-lightbox-image img { object-fit: contain; background: #101416; }
-.client-lightbox-logo { width: min(82vw, 900px); height: min(72vh, 620px); background: #f2ede7; }
-.client-lightbox-logo img { object-fit: contain; background: transparent; padding: clamp(28px, 6vw, 80px); }
+.client-lightbox-logo { width: min(82vw, 1100px); height: min(76vh, 720px); border-radius: 0; overflow: visible; background: transparent; }
+.client-lightbox-logo img { object-fit: contain; background: transparent; padding: clamp(20px, 4vw, 56px); filter: drop-shadow(0 20px 38px rgb(0 0 0 / 42%)); }
 .client-lightbox-close { position: fixed; z-index: 1; top: 22px; right: 22px; width: 52px; height: 52px; border: 1px solid #ffffff80; background: #171717cc; color: white; font-size: 34px; line-height: 1; }
 .client-lightbox-close:hover { background: #ad4d0c; }
 

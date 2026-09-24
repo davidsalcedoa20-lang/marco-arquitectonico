@@ -55,10 +55,18 @@ for (const name of files) {
     data[pixel * channels + 3] = Math.max(0, Math.min(255, Math.round((distance / 92) * 255)));
   }
 
-  const transparent = await sharp(data, { raw: info })
+  const cleaned = await sharp(data, { raw: info })
     .trim({ background: { r: 255, g: 255, b: 255, alpha: 0 } })
     .extend({ top: 10, bottom: 10, left: 10, right: 10, background: { r: 255, g: 255, b: 255, alpha: 0 } })
     .png({ compressionLevel: 9 })
+    .toBuffer();
+
+  const cleanedMetadata = await sharp(cleaned).metadata();
+  const targetWidth = Math.max(1200, (cleanedMetadata.width ?? width) * 4);
+  const transparent = await sharp(cleaned)
+    .resize({ width: targetWidth, kernel: sharp.kernel.lanczos3 })
+    .sharpen({ sigma: 0.7 })
+    .png({ compressionLevel: 9, adaptiveFiltering: true })
     .toBuffer();
 
   await fs.writeFile(path.join(outputDir, name), transparent);
