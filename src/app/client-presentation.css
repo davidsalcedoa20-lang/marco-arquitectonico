@@ -41,13 +41,13 @@ html { scroll-padding-top: var(--header-height); }
 .client-service-links a:hover img { transform: scale(1.035); }
 .client-service-links h3 { padding-top: 14px; font-size: var(--type-subtitle); font-weight: 400; line-height: 1.3; }
 .client-service-section, #servicios, #clientes, #contacto { scroll-margin-top: 0; }
-.client-service-detail { display: grid; grid-template-columns: 47% 53%; color: #303030; background: white; }
+.client-service-detail { display: grid; grid-template-columns: 47% 53%; grid-template-rows: auto auto; color: #303030; background: white; }
 #mantenimiento .client-service-detail { background: var(--landing-gray); }
-.client-service-copy { padding: 38px 28px 28px; display: flex; flex-direction: column; min-width: 0; }
+.client-service-copy { grid-column: 1; padding: 38px 28px 16px; min-width: 0; }
 .client-service-copy h3 { font-size: var(--type-subtitle); font-weight: 400; line-height: 1.4; margin: 0 0 28px; }
 .client-service-paragraphs p { font-size: var(--type-body); line-height: 1.7; margin-bottom: 20px; text-align: justify; text-wrap: pretty; }
 .client-service-paragraphs .client-service-promise { color: #ad4d0c; text-align: center; font-weight: 600; margin-block: 22px; }
-.client-gallery-train { margin-top: auto; padding-top: 12px; overflow: hidden; }
+.client-gallery-train { grid-column: 1; grid-row: 2; padding: 12px 28px 18px; overflow: hidden; }
 .client-detail-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; animation: client-gallery-arrive .55s cubic-bezier(.22,.61,.36,1); }
 .client-detail-gallery > div, .client-detail-gallery > button { aspect-ratio: 1.2; position: relative; overflow: hidden; }
 .client-detail-gallery img, .client-detail-photo img { object-fit: cover; }
@@ -56,7 +56,7 @@ html { scroll-padding-top: var(--header-height); }
 .client-gallery-controls button:hover { border-color: var(--landing-orange); color: #98400b; }
 .client-gallery-controls span { min-width: 42px; text-align: center; font-size: var(--type-small); font-variant-numeric: tabular-nums; }
 @keyframes client-gallery-arrive { from { opacity: .35; transform: translateX(9%); } to { opacity: 1; transform: translateX(0); } }
-.client-detail-photo { position: relative; min-height: 650px; }
+.client-detail-photo { position: relative; grid-column: 2; grid-row: 2; align-self: start; width: calc(100% - 28px); aspect-ratio: 4.05; margin: 12px 28px 0 0; min-height: 0; }
 .client-trust { padding-block: 64px 34px; text-align: center; background: #f5f5f5; color: #303030; }
 .client-trust h2 { font-size: var(--type-heading); font-weight: 600; line-height: 1.25; }
 .client-trust > div > p { margin: 18px auto 26px; font-size: var(--type-body); line-height: 1.6; max-width: 1000px; }
@@ -91,7 +91,7 @@ html { scroll-padding-top: var(--header-height); }
   .brand-service-line { font-size: 12px; letter-spacing: 0; }
   .client-service-detail { grid-template-columns: 50% 50%; }
   .client-service-copy { padding: 28px 20px; }
-  .client-detail-photo { min-height: 620px; }
+  .client-detail-photo { min-height: 0; }
   .client-contact-layout { grid-template-columns: 42% 58%; }
 }
 @media(max-width:700px) {
@@ -110,8 +110,8 @@ html { scroll-padding-top: var(--header-height); }
   .client-service-detail { grid-template-columns: 1fr; }
   .client-service-copy { padding: 30px 20px 20px; }
   .client-service-copy h3 { margin-bottom: 22px; }
-  .client-detail-photo { min-height: 0; aspect-ratio: 1.1; }
-  .client-gallery-train { padding-top: 4px; }
+  .client-detail-photo { grid-column: 1; grid-row: 2; width: calc(100% - 40px); margin: 4px 20px 0; min-height: 0; aspect-ratio: 1.65; }
+  .client-gallery-train { grid-column: 1; grid-row: 3; padding: 12px 20px 22px; }
   .client-trust { padding-top: 42px; }
   .client-logo-strip { grid-auto-columns: calc((100% - 20px)/2); gap: 20px; }
   .client-logo-strip img { height: 85px; }

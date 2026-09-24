@@ -158,9 +158,9 @@ export function ClientLanding({ logos }: { logos: string[] }) {
             {(service.id === "servicios-profesionales" ? [service.paragraphs[2], service.paragraphs[1], service.paragraphs[3]] : [service.paragraphs[2], service.paragraphs[1]]).map(p => <p key={p}>{p}</p>)}
             {service.id !== "servicios-profesionales" && <p className="client-service-promise">{service.promise}</p>}
           </div>
-          <ThumbnailTrain images={service.galleryImages.map(media)} captions={service.galleryCaptions} label={service.title} onOpen={(src, alt) => setPreview({ src, alt })} />
         </div>
         <button className="client-detail-photo client-image-button" type="button" onClick={() => setPreview({ src: media(service.images[0]), alt: service.captions[0] })} aria-label={`Ampliar imagen: ${service.captions[0]}`}><Image src={media(service.images[0])} alt={service.captions[0]} fill quality={90} sizes="(max-width: 700px) 100vw, 54vw" /></button>
+        <ThumbnailTrain images={service.galleryImages.map(media)} captions={service.galleryCaptions} label={service.title} onOpen={(src, alt) => setPreview({ src, alt })} />
       </div>
     </section>)}
     <section id="clientes" className="client-trust"><div className="page-container">
