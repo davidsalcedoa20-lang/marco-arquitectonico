@@ -17,7 +17,7 @@ main { scroll-margin-top: 112px; }
 .corporate-footer .corporate-brand { max-width: 100%; padding: 10px; border-radius: 12px; background: white; }
 .corporate-brand span { font-size: 20px; line-height: 1.35; font-weight: 600; letter-spacing: -.02em; }
 .desktop-nav { display: flex; align-items: center; gap: 12px; }
-.desktop-nav a { padding: 11px 16px; border: 2px solid transparent; border-radius: 999px; font-size: 18px; font-weight: 600; transition: color .2s, border-color .2s, background-color .2s; }
+.desktop-nav a { padding: 11px 16px; border: 2px solid transparent; border-radius: 999px; font-size: 21px; font-weight: 600; transition: color .2s, border-color .2s, background-color .2s; }
 .desktop-nav a:hover { border-color: var(--landing-orange, #ef7d28); background: #fff3ea; color: #98400b; }
 .desktop-nav a:focus-visible { border-color: var(--landing-orange, #ef7d28); background: #fff3ea; }
 [aria-current="page"] { font-weight: 600; }
@@ -141,7 +141,7 @@ main { scroll-margin-top: 112px; }
   .mobile-quote { display: inline; }
   .menu-toggle { display: block; height: 44px; width: 44px; font-size: 24px; border: 1px solid #ded2c5; border-radius: 50%; }
   .mobile-nav { display: flex; flex-direction: column; padding: 8px 24px 24px; gap: 4px; border-top: 1px solid #ded2c5; }
-  .mobile-nav a { padding: 12px 16px; border: 2px solid transparent; border-radius: 999px; font-size: 18px; font-weight: 600; }
+  .mobile-nav a { padding: 12px 16px; border: 2px solid transparent; border-radius: 999px; font-size: 20px; font-weight: 600; }
   .mobile-nav a:hover, .mobile-nav a:focus-visible { border-color: var(--landing-orange, #ef7d28); background: #fff3ea; color: #98400b; }
   .corporate-hero { grid-template-columns: 1fr; gap: 28px; }
   .corporate-intro { max-width: 640px; }
