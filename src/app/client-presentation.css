@@ -2,7 +2,7 @@
 :root {
   --landing-orange: #ef7d28;
   --landing-gray: #ededed;
-  --header-height: 150px;
+  --header-height: 124px;
   --type-small: 14px;
   --type-body: 18px;
   --type-subtitle: clamp(22px, 2vw, 26px);
@@ -86,7 +86,7 @@ html { scroll-padding-top: var(--header-height); }
 .whatsapp-button:hover { background: #10552f; }
 @media(min-width:1600px) { .client-service-copy { padding: 48px max(32px,calc((100vw - 1440px)/2)); padding-right: 40px; } }
 @media(max-width:900px) {
-  :root { --header-height: 130px; }
+  :root { --header-height: 104px; }
   .corporate-header-inner { min-height: 92px; }
   .brand-service-line { font-size: 12px; letter-spacing: 0; }
   .client-service-detail { grid-template-columns: 50% 50%; }
@@ -95,7 +95,7 @@ html { scroll-padding-top: var(--header-height); }
   .client-contact-layout { grid-template-columns: 42% 58%; }
 }
 @media(max-width:700px) {
-  :root { --header-height: 120px; }
+  :root { --header-height: 92px; }
   .corporate-header-inner { min-height: 84px; }
   .brand-service-line { font-size: 9px; line-height: 16px; padding: 4px 10px 16px; }
   .client-carousel { height: 480px; }
