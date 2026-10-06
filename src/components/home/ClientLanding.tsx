@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { type CSSProperties, useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 
 // Curated and optimized client photography, including the requested safety edits.
 const photography: Record<string, { src: string; position: string; mobile: string }> = {
@@ -52,11 +52,31 @@ const clientNames: Record<string, string> = {
   "18_sodimac_homecenter.png": "Sodimac Homecenter",
 };
 type Slide = { image: string; title: string; text: string };
+
+function useCarouselVisibility<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.25 },
+    );
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, visible };
+}
+
 function Carousel({ slides, welcome = false, label, subtitle }: { slides: Slide[]; welcome?: boolean; label: string; subtitle?: string }) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [hover, setHover] = useState(false);
   const [reduced, setReduced] = useState(true);
+  const { ref, visible } = useCarouselVisibility<HTMLElement>();
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => setReduced(query.matches);
@@ -64,11 +84,11 @@ function Carousel({ slides, welcome = false, label, subtitle }: { slides: Slide[
     return () => query.removeEventListener("change", update);
   }, []);
   useEffect(() => {
-    if (paused || hover || reduced) return;
-    const timer = window.setInterval(() => setActive(i => (i + 1) % slides.length), 6500);
+    if (!visible || paused || reduced) return;
+    const timer = window.setInterval(() => setActive(i => (i + 1) % slides.length), 2000);
     return () => window.clearInterval(timer);
-  }, [paused, hover, reduced, slides.length]);
-  return <section className={`client-carousel ${welcome ? "welcome-carousel" : ""}`} aria-label={label} aria-roledescription="carrusel" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onFocusCapture={() => setHover(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setHover(false); }}>
+  }, [paused, reduced, slides.length, visible]);
+  return <section ref={ref} className={`client-carousel ${welcome ? "welcome-carousel" : ""}`} aria-label={label} aria-roledescription="carrusel" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onFocusCapture={() => setHover(true)} onBlurCapture={e => { if (!e.currentTarget.contains(e.relatedTarget)) setHover(false); }}>
     <div className="client-slide-track" style={{ transform: `translateX(-${active * 100}%)` }}>
       {slides.map((slide, index) => <div className="client-slide" key={slide.image} aria-hidden={active !== index} style={{ "--photo-position": Object.values(photography).find(photo => slide.image.endsWith(photo.src))?.position, "--photo-position-mobile": Object.values(photography).find(photo => slide.image.endsWith(photo.src))?.mobile } as CSSProperties}>
         <Image src={slide.image} alt={slide.title} fill quality={90} sizes="(max-width: 600px) 840px, (max-width: 2528px) 100vw, 2528px" priority={welcome && index === 0} />
@@ -86,6 +106,7 @@ function ThumbnailTrain({ images, captions, label, onOpen }: { images: string[];
   const [paused, setPaused] = useState(false);
   const [hover, setHover] = useState(false);
   const [reduced, setReduced] = useState(true);
+  const { ref, visible: isVisible } = useCarouselVisibility<HTMLDivElement>();
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => setReduced(query.matches);
@@ -93,17 +114,17 @@ function ThumbnailTrain({ images, captions, label, onOpen }: { images: string[];
     return () => query.removeEventListener("change", update);
   }, []);
   useEffect(() => {
-    if (paused || hover || reduced || images.length <= 3) return;
-    const timer = window.setInterval(() => setActive(index => (index + 1) % images.length), 3600);
+    if (!isVisible || paused || reduced || images.length <= 3) return;
+    const timer = window.setInterval(() => setActive(index => (index + 1) % images.length), 2000);
     return () => window.clearInterval(timer);
-  }, [hover, images.length, paused, reduced]);
+  }, [images.length, isVisible, paused, reduced]);
 
   const visible = Array.from({ length: Math.min(3, images.length) }, (_, offset) => {
     const index = (active + offset) % images.length;
     return { image: images[index], caption: captions[index], index };
   });
 
-  return <div className="client-gallery-train" aria-label={`Galería de ${label}`} aria-roledescription="carrusel" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onFocusCapture={() => setHover(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setHover(false); }}>
+  return <div ref={ref} className="client-gallery-train" aria-label={`Galería de ${label}`} aria-roledescription="carrusel" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onFocusCapture={() => setHover(true)} onBlurCapture={event => { if (!event.currentTarget.contains(event.relatedTarget)) setHover(false); }}>
     <div className="client-detail-gallery" key={active}>{visible.map(({ image, caption, index }) => <button className="client-image-button" type="button" key={`${image}-${index}`} onClick={() => onOpen(image, caption)} aria-label={`Ampliar imagen: ${caption}`}><Image src={image} alt={caption} fill sizes="(max-width: 700px) 30vw, 17vw" /></button>)}</div>
     {images.length > 3 && <div className="client-gallery-controls">
       <button type="button" aria-label={`Imágenes anteriores de ${label}`} onClick={() => setActive(index => (index - 1 + images.length) % images.length)}>←</button>
