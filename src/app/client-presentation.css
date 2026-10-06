@@ -32,7 +32,7 @@ html { scroll-padding-top: var(--header-height); }
 .client-carousel-controls span { min-width: 52px; text-align: center; font-variant-numeric: tabular-nums; }
 .client-intro { padding-block: 38px 45px; background: var(--landing-gray); color: #303030; text-align: center; }
 .client-intro h2 { font-size: var(--type-heading); font-weight: 600; margin-bottom: 22px; }
-.client-intro h2 span { display: inline-block; padding: 5px 18px; background: var(--landing-orange); color: #fff; }
+.client-intro h2 span { display: inline-block; padding: 5px 18px; border: 2px solid var(--landing-orange); background: #fff3ea; color: #98400b; }
 .client-intro > div > p { font-size: var(--type-subtitle); line-height: 1.5; margin: 0 auto 28px; }
 .client-service-links { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
 .client-service-links a { display: block; min-width: 0; }
