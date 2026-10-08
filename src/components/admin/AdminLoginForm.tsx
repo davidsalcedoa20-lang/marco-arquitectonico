@@ -70,7 +70,7 @@ export function AdminLoginForm() {
     <p>Gestiona de forma segura todas las imágenes publicadas en el sitio.</p>
     <form onSubmit={submit}>
       <label>Correo electrónico<input name="email" type="email" required autoComplete="email" /></label>
-      <label>Contraseña<input name="password" type="password" minLength={8} required autoComplete={mode === "login" ? "current-password" : "new-password"} /></label>
+      <label>Contraseña<input name="password" type="password" minLength={6} required autoComplete={mode === "login" ? "current-password" : "new-password"} /></label>
       {mode === "setup" && <label>Código de activación<input name="setupToken" type="text" required autoComplete="off" /></label>}
       {mode === "login" && <label className="admin-optional-token">Código de activación <span>(solo para el primer acceso)</span><input name="setupToken" type="text" autoComplete="off" /></label>}
       {message && <p className="admin-form-message" role="status">{message}</p>}
