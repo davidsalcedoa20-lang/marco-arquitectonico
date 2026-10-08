@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { type CSSProperties, useEffect, useRef, useState } from "react";
+import { useMediaUrl } from "@/components/media/MediaProvider";
 
 // Curated and optimized client photography, including the requested safety edits.
 const photography: Record<string, { src: string; position: string; mobile: string }> = {
@@ -30,7 +31,7 @@ const photography: Record<string, { src: string; position: string; mobile: strin
   "image28.jpg": { src: "cliente/profesional-diseno-mobiliario.webp", position: "50% 48%", mobile: "50% 45%" },
   "image29.jpg": { src: "cliente/profesional-gerencia-obra.webp", position: "50% 48%", mobile: "50% 45%" },
 };
-const media = (name: string) => `/assets/servicios/${photography[name].src}`;
+const defaultMedia = (name: string) => `/assets/servicios/${photography[name].src}`;
 const clientNames: Record<string, string> = {
   "01_cusezar.png": "Cusezar",
   "02_hotel_city_bog_106.png": "Hotel City Bog 106",
@@ -142,6 +143,8 @@ const services = [
 ];
 
 export function ClientLanding({ logos }: { logos: string[] }) {
+  const resolveMedia = useMediaUrl();
+  const media = (name: string) => resolveMedia(defaultMedia(name));
   const [preview, setPreview] = useState<{ src: string; alt: string; kind?: "photo" | "logo" } | null>(null);
   useEffect(() => {
     if (!preview) return;
@@ -154,10 +157,10 @@ export function ClientLanding({ logos }: { logos: string[] }) {
 
   return <>
     <div id="inicio" className="client-welcome"><Carousel welcome label="Bienvenida" slides={[
-      { image: "/quienes_somos/cierre.webp", title: "Bienvenidos", text: "Nuestra compañía está enfocada en mejorar tu calidad de vida." },
+      { image: resolveMedia("/quienes_somos/cierre.webp"), title: "Bienvenidos", text: "Nuestra compañía está enfocada en mejorar tu calidad de vida." },
       { image: media("image17.jpg"), title: "Servicios profesionales", text: "Consultoría, interventoría y dirección de proyectos." },
       { image: media("image7.jpg"), title: "Conservamos tu patrimonio", text: "Protegemos el bienestar y la seguridad de tu propiedad horizontal." },
-      { image: "/quienes_somos/hero.webp", title: "Construyendo tu bienestar", text: "Y experiencias para contar." },
+      { image: resolveMedia("/quienes_somos/hero.webp"), title: "Construyendo tu bienestar", text: "Y experiencias para contar." },
       { image: media("image10.jpeg"), title: "Construcción", text: "Planificar, ejecutar y entregar." },
     ]} /></div>
     <section id="servicios" className="client-intro">
@@ -197,16 +200,18 @@ export function ClientLanding({ logos }: { logos: string[] }) {
 }
 
 function ClientLogos({ logos, onOpen }: { logos: string[]; onOpen: (src: string, alt: string) => void }) {
+  const resolveMedia = useMediaUrl();
   const nameFor = (src: string) => {
     const filename = src.split("/").pop()!;
     return clientNames[filename] ?? filename.replace(/^\d+_/, "").replace(/\.[^.]+$/, "").replace(/_/g, " ");
   };
   const repeated = [...logos, ...logos];
   return <div className="client-logo-marquee" aria-label="Nuestros clientes">
-    <div className="client-logo-track">{repeated.map((src, index) => {
-      const name = nameFor(src);
+    <div className="client-logo-track">{repeated.map((defaultSrc, index) => {
+      const src = resolveMedia(defaultSrc);
+      const name = nameFor(defaultSrc);
       const duplicate = index >= logos.length;
-      return <figure key={`${src}-${duplicate ? "copy" : "original"}`} aria-hidden={duplicate || undefined}>
+      return <figure key={`${defaultSrc}-${duplicate ? "copy" : "original"}`} aria-hidden={duplicate || undefined}>
         <button className="client-logo-button" type="button" tabIndex={duplicate ? -1 : undefined} onClick={() => onOpen(src, name)} aria-label={duplicate ? undefined : `Ampliar logo de ${name}`}>
           <Image src={src} alt={duplicate ? "" : name} width={320} height={190} />
         </button>

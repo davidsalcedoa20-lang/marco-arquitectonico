@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./client-review.css";
 import "./client-presentation.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { SmoothScroll } from "@/components/layout/SmoothScroll";
-import { CotizarProvider } from "@/components/cotizar/CotizarProvider";
+import { SiteChrome } from "@/components/layout/SiteChrome";
+import { MediaProvider } from "@/components/media/MediaProvider";
+import { getMediaOverrides } from "@/lib/getMediaOverrides";
 
 
 const siteUrl =
@@ -61,21 +60,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const overrides = await getMediaOverrides();
   return (
     <html lang="es">
       <body className="bg-white font-sans text-ma-black antialiased">
-        <SmoothScroll>
-          <CotizarProvider>
-            <Header />
-            {children}
-            <Footer />
-          </CotizarProvider>
-        </SmoothScroll>
+        <MediaProvider overrides={overrides}><SiteChrome>{children}</SiteChrome></MediaProvider>
       </body>
     </html>
   );

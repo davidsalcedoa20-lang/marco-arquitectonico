@@ -1,11 +1,14 @@
+"use client";
 import Image from "next/image";
+import { useMediaUrl } from "@/components/media/MediaProvider";
 
 /** Original artwork supplied in Correciones on 7 September 2026. */
 export function BrandLogo({ priority = false }: { priority?: boolean }) {
+  const mediaUrl = useMediaUrl();
   return (
     <Image
       className="brand-artwork"
-      src="/brand/marco-arquitectonico-completo.jpeg"
+      src={mediaUrl("/brand/marco-arquitectonico-completo.jpeg")}
       alt="Marco Arquitectónico S.A.S."
       width={712}
       height={193}
