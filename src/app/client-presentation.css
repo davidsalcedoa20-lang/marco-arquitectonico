@@ -82,6 +82,8 @@ html { scroll-padding-top: var(--header-height); }
 .client-map { width: 100%; height: 420px; border: 0; display: block; background: #eee; }
 .client-map-link { display: block; padding: 12px; text-align: center; text-decoration: underline; font-size: var(--type-small); }
 .footer-credits { margin: 0; padding: 22px 40px; background: #242424; color: white; border: 0; font-size: var(--type-small); }
+.footer-admin-link { color: inherit; text-decoration: none; transition: color .2s ease; }
+.footer-admin-link:hover, .footer-admin-link:focus-visible { color: #f08a43; text-decoration: underline; text-underline-offset: 4px; }
 .whatsapp-button { background: #17673c; color: white; }
 .whatsapp-button:hover { background: #10552f; }
 @media(min-width:1600px) { .client-service-copy { padding: 48px max(32px,calc((100vw - 1440px)/2)); padding-right: 40px; } }

@@ -21,6 +21,6 @@ export function Footer() {
     <p className="client-final-promise">Protege y <span>garantiza</span> tu <span>patrimonio.</span></p>
     <iframe className="client-map" title="Ubicación: Carrera 18 # 78-74, Bogotá" src="https://maps.google.com/maps?q=Carrera%2018%20%2378-74%2C%20Bogota%2C%20Colombia&z=16&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
     <a className="client-map-link" href={mapUrl} target="_blank" rel="noopener noreferrer">Ver ubicación en Google Maps ↗</a>
-    <div className="footer-credits"><p>© {new Date().getFullYear()} Marco Arquitectónico.</p><a href="https://nexaorigin.com/" target="_blank" rel="noopener noreferrer">Diseño y desarrollo: Nexa Digital Studio</a></div>
+    <div className="footer-credits"><p><a className="footer-admin-link" href="/admin/login">© {new Date().getFullYear()} Marco Arquitectónico.</a></p><a href="https://nexaorigin.com/" target="_blank" rel="noopener noreferrer">Diseño y desarrollo: Nexa Digital Studio</a></div>
   </footer>;
 }
