@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState, type FormEvent } from "react";
 import { createClient } from "@/lib/supabase/client";
+import { AdminContentManager } from "@/components/admin/AdminContentManager";
+import type { SiteContentRow } from "@/lib/siteContent";
 
 export type AdminMediaAsset = {
   asset_key: string; section: string; label: string; alt_text: string;
@@ -13,8 +15,10 @@ export type AdminMediaAsset = {
 
 const sections = ["Todas", "Marca", "Inicio", "Mantenimiento", "Construcción", "Servicios profesionales", "Clientes"];
 
-export function AdminDashboard({ initialAssets, email }: { initialAssets: AdminMediaAsset[]; email: string }) {
-  const [view, setView] = useState<"images" | "settings">("images");
+type AdminView = "images" | "content" | "contact" | "services" | "clients" | "carousels" | "projects" | "seo" | "visibility" | "settings";
+
+export function AdminDashboard({ initialAssets, initialContent, email }: { initialAssets: AdminMediaAsset[]; initialContent: SiteContentRow[]; email: string }) {
+  const [view, setView] = useState<AdminView>("images");
   const [accountEmail, setAccountEmail] = useState(email);
   const [accountNotice, setAccountNotice] = useState("");
   const [accountBusy, setAccountBusy] = useState(false);
@@ -93,7 +97,19 @@ export function AdminDashboard({ initialAssets, email }: { initialAssets: AdminM
   return <main className="admin-shell">
     <aside className="admin-sidebar">
       <div><div className="admin-brand-mark">M</div><strong>Marco Arquitectónico</strong><span>Panel administrativo</span></div>
-      <nav><button className={view === "images" ? "is-active" : ""} onClick={() => setView("images")}>▧ Imágenes</button><button className={view === "settings" ? "is-active" : ""} onClick={() => setView("settings")}>⚙ Ajustes</button><Link href="/" target="_blank">↗ Ver sitio</Link></nav>
+      <nav>
+        <button className={view === "images" ? "is-active" : ""} onClick={() => setView("images")}>▧ Imágenes</button>
+        <button className={view === "content" ? "is-active" : ""} onClick={() => setView("content")}>Aa Textos</button>
+        <button className={view === "contact" ? "is-active" : ""} onClick={() => setView("contact")}>◉ Contacto</button>
+        <button className={view === "services" ? "is-active" : ""} onClick={() => setView("services")}>◇ Servicios</button>
+        <button className={view === "clients" ? "is-active" : ""} onClick={() => setView("clients")}>◎ Clientes</button>
+        <button className={view === "carousels" ? "is-active" : ""} onClick={() => setView("carousels")}>▤ Carruseles</button>
+        <button className={view === "projects" ? "is-active" : ""} onClick={() => setView("projects")}>▦ Proyectos</button>
+        <button className={view === "seo" ? "is-active" : ""} onClick={() => setView("seo")}>⌕ SEO</button>
+        <button className={view === "visibility" ? "is-active" : ""} onClick={() => setView("visibility")}>◐ Visibilidad</button>
+        <button className={view === "settings" ? "is-active" : ""} onClick={() => setView("settings")}>⚙ Cuenta</button>
+        <Link href="/" target="_blank">↗ Ver sitio</Link>
+      </nav>
       <div className="admin-account"><span>{accountEmail}</span><button onClick={logout}>Cerrar sesión</button></div>
     </aside>
     {view === "images" ? <section className="admin-content" id="imagenes">
@@ -114,7 +130,7 @@ export function AdminDashboard({ initialAssets, email }: { initialAssets: AdminM
           <button className="admin-primary-button" disabled={busy || (!file && altText === selected.alt_text)}>{busy ? "Publicando…" : "Publicar cambios"}</button>
         </form>
       </div>
-    </section> : <section className="admin-content" id="ajustes">
+    </section> : view === "settings" ? <section className="admin-content" id="ajustes">
       <header><div><p className="admin-eyebrow">Seguridad de la cuenta</p><h1>Ajustes</h1><p>Cambia el acceso cuando entregues el panel al cliente.</p></div></header>
       <form className="admin-settings-card" onSubmit={updateAccount}>
         <div><h2>Datos de acceso</h2><p>Correo actual: <strong>{accountEmail}</strong></p></div>
@@ -124,6 +140,6 @@ export function AdminDashboard({ initialAssets, email }: { initialAssets: AdminM
         {accountNotice && <p className="admin-notice" role="status">{accountNotice}</p>}
         <button className="admin-primary-button" disabled={accountBusy}>{accountBusy ? "Guardando…" : "Guardar cambios"}</button>
       </form>
-    </section>}
+    </section> : <AdminContentManager initialRows={initialContent} module={view} />}
   </main>;
 }

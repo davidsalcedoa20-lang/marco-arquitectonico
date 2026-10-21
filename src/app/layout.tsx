@@ -5,12 +5,14 @@ import "./client-presentation.css";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { MediaProvider } from "@/components/media/MediaProvider";
 import { getMediaOverrides } from "@/lib/getMediaOverrides";
+import { getSiteContent } from "@/lib/getSiteContent";
+import { SiteContentProvider } from "@/components/content/SiteContentProvider";
 
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://marcoarquitectonico.com";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "Marco Arquitectónico | Construcción, mantenimiento y servicios profesionales",
@@ -60,16 +62,28 @@ export const metadata: Metadata = {
   },
 };
 
+export async function generateMetadata(): Promise<Metadata> {
+  const { seo } = await getSiteContent();
+  return {
+    ...baseMetadata,
+    title: { default: seo.title, template: "%s | Marco Arquitectónico" },
+    description: seo.description,
+    keywords: seo.keywords.split(",").map((item) => item.trim()).filter(Boolean),
+    openGraph: { ...baseMetadata.openGraph, title: seo.title, description: seo.description, images: [{ url: seo.shareImage, alt: "Marco Arquitectónico" }] },
+    twitter: { card: "summary_large_image", title: seo.title, description: seo.description, images: [seo.shareImage] },
+  };
+}
+
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const overrides = await getMediaOverrides();
+  const [overrides, content] = await Promise.all([getMediaOverrides(), getSiteContent()]);
   return (
     <html lang="es">
       <body className="bg-white font-sans text-ma-black antialiased">
-        <MediaProvider overrides={overrides}><SiteChrome>{children}</SiteChrome></MediaProvider>
+        <MediaProvider overrides={overrides}><SiteContentProvider content={content}><SiteChrome>{children}</SiteChrome></SiteContentProvider></MediaProvider>
       </body>
     </html>
   );

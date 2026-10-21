@@ -6,6 +6,6 @@ Me gustaría recibir asesoría para mi proyecto.
 
 Quisiera conocer más información sobre sus servicios.`;
 
-export function getWhatsAppUrl(message = WHATSAPP_DEFAULT_MESSAGE) {
-  return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+export function getWhatsAppUrl(message = WHATSAPP_DEFAULT_MESSAGE, phone = WHATSAPP_PHONE) {
+  return `https://wa.me/${phone.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
 }
